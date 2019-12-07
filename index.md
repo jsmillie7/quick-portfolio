@@ -8,7 +8,7 @@
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
-[SHA-256 Data Encryption Tool](/pdf/sample_presentation.pdf)
+[SHA-256 Data Encryption Tool](/data_encryption)
 <img src="images/encrypter1.png"/>
 
 ---

@@ -19,9 +19,10 @@ which opens a file browser and sends the chosen file through the selected proces
 
 #### Future Imporvements
 In the future, improvements could be made, such as:
-* updating the encryption to SHA-3 standards.
-* an in-window "live" decryptor could be useful to read files without creating an unsecure copy of them. 
-* adding a log-out function (currently, killing the kernel by closing the window acts as a log-out, but this is not the most secure way to do this.)
+* Updating the encryption to SHA-3 standards.
+* An in-window "live" decryptor could be useful to read files without creating an unsecure copy of them. 
+* Adding a log-out function (currently, killing the kernel by closing the window acts as a log-out, but this is not the most secure way to do this.)
+* Interfacing with Google Drive/Dropbox/etc. directly.
 
 ---
 

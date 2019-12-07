@@ -4,11 +4,11 @@
 
 ### Python3 Examples
 
-[Equipment Maintenance Manager](/sample_page)
+[Instrument Maintenance Manager](/instrument_mgr)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
-[SHA-256 Data Encryption Tool](/data_encryption.md)
+[SHA-256 Data Encryption Tool](/data_encryption)
 <img src="images/encrypter1.png"/>
 
 ---

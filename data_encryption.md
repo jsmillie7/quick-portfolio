@@ -2,17 +2,27 @@
 ---
 ### Background:
 This project was developed for a start-up to encrypt sensitive proprietary files to be shared over the cloud, via email, or anywhere security may be of concern. This app was developed using [this](https://pypi.org/project/cryptography/) PyPi cryptography package in the backend and Tkinter for the front end. The UI is very minimalist, consisting of just 2 screens: 
-#### a log-in screen 
+#### Log-in screen 
 that doesn't allow any file encryption/decryption until correct password is entered
 
 <img src="images/encrypter1.png"/>
 
-#### and the encrypt/decrypt screen
+#### Encrypt/Decrypt screen
 which opens a file browser and sends the chosen file through the selected process.
 
 <img src="images/encrypter2.png"/>
+
+#### Future Imporvements
+In the future, improvements could be made, such as:
+* updating the encryption to SHA-3 standards.
+* an in-window "live" decryptor could be useful to read files without creating an unsecure copy of them. 
+* adding a log-out function (currently, killing the kernel by closing the window acts as a log-out, but this is not the most secure way to do this.)
+
 ---
+
 ### Code:
+
+[Here](https://github.com/jsmillie7/TUG_Encryptor/blob/master/TUG_Encryption.pyw) is the .pyw file on GitHub.
 
 ```python
 import base64, tkinter

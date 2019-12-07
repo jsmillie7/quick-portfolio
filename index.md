@@ -8,7 +8,7 @@
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
-[SHA-256 Data Encryption Tool](/data_encryption)
+[SHA-256 Data Encryption Tool](/data_encryption.md)
 <img src="images/encrypter1.png"/>
 
 ---

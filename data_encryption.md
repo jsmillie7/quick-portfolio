@@ -1,4 +1,9 @@
+<a href="index">
+<img src="images/back.png" alt="Back" height="42" width="42">
+</a>
+
 ## Data Encrytpion UI for Cloud Storage
+
 ---
 ### Background:
 This project was developed for a start-up to encrypt sensitive proprietary files to be shared over the cloud, via email, or anywhere security may be of concern. This app was developed using [this](https://pypi.org/project/cryptography/) PyPi cryptography package in the backend and Tkinter for the front end. The UI is very minimalist, consisting of just 2 screens: 

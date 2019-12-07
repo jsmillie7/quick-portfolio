@@ -76,6 +76,7 @@ class password:
             self.error.grid(columnspan=2,row=4,column=0, sticky=EW)
             self.p1.set('')
     
+    
     class files:
         def __init__(self, parent, key):
             self.parent = parent
@@ -89,10 +90,12 @@ class password:
             self.decrypt = Button(self.win, text='Decrypt File', command=self.file_decrypter)
             self.decrypt.pack(side=LEFT, fill=BOTH, expand=1)
             
+            
         def file_encrypter(self):
             fname = askopenfilename()
             if fname != '':
                 self.save(fname, fname + '.TUG')
+
 
         def file_decrypter(self):
             fname = askopenfilename()

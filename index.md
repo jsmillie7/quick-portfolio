@@ -24,7 +24,7 @@
 
 [CNC Laser Cutter](#)
 
-<img src="images/laser.JPG"/ alt="laser cutter">
+<img src="images/laser.JPG" alt="laser cutter">
 
 ---
 

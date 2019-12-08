@@ -14,7 +14,7 @@
 <img src="images/encrypter1.png"/>
 
 ---
-[3D G-code flattener](/3d_2d)
+[3D G-code flattener](/3d_2d.md)
 
 <img src="images/pyplot.png"/>
 

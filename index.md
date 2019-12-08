@@ -12,8 +12,8 @@
 <img src="images/encrypter1.png"/>
 
 ---
-[Project 3 Title](http://example.com/)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
+[3D G-code flattener](/3d_2d)
+<img src="images/pyplot.png"/>
 
 ---
 

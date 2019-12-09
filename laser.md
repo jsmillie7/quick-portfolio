@@ -1,3 +1,18 @@
 
 
 ## Custom CNC Laser Cutter
+
+---
+
+### Technical Specifications
+
+* 12in x 12in cutting size
+* Custom GRBL-based software
+* Custom ESP32-based controller board
+* 1.8W M140 445nm Laser Diode
+
+---
+
+### Background
+
+This project began as a challenge to myself and a creative outlet, as I was interested in using it for art projects in my spare time, as a stencil cutter.

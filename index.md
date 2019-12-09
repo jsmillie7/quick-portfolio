@@ -22,7 +22,7 @@
 
 ### Hardware
 
-[CNC Laser Cutter](#)
+[CNC Laser Cutter](/laser)
 
 <img src="images/laser.JPG" alt="laser cutter">
 

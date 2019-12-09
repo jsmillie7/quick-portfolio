@@ -11,7 +11,7 @@
 * 12in x 12in cutting size
 * Custom GRBL-based software
 * Custom ESP32-based controller board
-* 1.8W M140 445nm Laser Diode
+* 1.8W 445nm M140 Laser Diode with G-2 Glass Lens (30mm)
 
 ---
 

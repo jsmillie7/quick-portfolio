@@ -6,7 +6,7 @@
 
 [Instrument Maintenance Manager](/instrument_mgr)
 
-<img src="InstrumentMaintenance.PNG" title="Instrument Maintenance Manager">
+<img src="images/InstrumentMaintenance.PNG" title="Instrument Maintenance Manager">
 
 ---
 [SHA-256 Data Encryption Tool](/data_encryption)

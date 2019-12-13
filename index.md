@@ -6,17 +6,23 @@
 
 [Instrument Maintenance Manager](/instrument_mgr)
 
-<img src="images/InstrumentMaintenance.PNG" title="Instrument Maintenance Manager">
+<a href="/instrument_mgr">
+  <img src="images/InstrumentMaintenance.PNG" title="Instrument Maintenance Manager">
+</a>
 
 ---
 [SHA-256 Data Encryption Tool](/data_encryption)
 
-<img src="images/encrypter1.png"/>
+<a href="/data_encryption">
+  <img src="images/encrypter1.png" title="SHA-256 Data Encryption Tool">
+</a>
 
 ---
 [3D to 2D G-code Optimizer](/3d_2d.md)
 
-<img src="images/pyplot.png"/>
+<a href="/3d_2d">
+  <img src="images/pyplot.png" title="G-Code Flattener">
+</a>
 
 ---
 

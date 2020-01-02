@@ -7,7 +7,7 @@
 ##### for macOS or Windows
 ---
 ### Background:
-This project was developed for a start-up to encrypt sensitive proprietary files to be shared over the cloud, via email, or anywhere security may be of concern. This app was developed using [this](https://pypi.org/project/cryptography/) PyPi cryptography package in the backend and Tkinter for the front end. The UI is very minimalist, consisting of just 2 screens: 
+This project was developed for a start-up to encrypt sensitive proprietary files to be shared over the cloud, via email, or anywhere security may be of concern. __Note: For the most secure usage, an offline version of this program is recommended (on a raspberry pi or micropython device not connected to the internet).__ This app was developed using [this](https://pypi.org/project/cryptography/) PyPi cryptography package in the backend and Tkinter for the front end. The UI is very minimalist, consisting of just 2 screens: 
 #### Log-in screen 
 that doesn't allow any file encryption/decryption until correct password is entered
 

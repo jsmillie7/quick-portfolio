@@ -63,8 +63,9 @@ file = 'Batch Report Log.xlsx'
 
 # UI Color
 color = 'azure3'
-
-
+```
+#### Global Classes
+```python
 ### Class Objects
 class nextBR:
     ### finds the next available BR# from the file.
@@ -95,7 +96,49 @@ class nextBR:
             root.destroy()
             exit()
 
-                
+
+class Framework:
+    ### The backbone of the UI. Creates and lays out each class object in the correct spot
+    ### and on the correct tab. Makes the layout modular and easily changable.
+    
+    def __init__(self, parent):
+        self.parent = parent
+        self.tabs = ttk.Notebook(self.parent)
+        self.tab1 = ttk.Frame(self.tabs)
+        self.tab2 = ttk.Frame(self.tabs)
+        self.tab3 = ttk.Frame(self.tabs)
+        self.tabs.add(self.tab1, text='  Assign  ')
+        self.tabs.add(self.tab2, text='  Search  ')
+        self.tabs.add(self.tab3, text='  Labels  ')
+        self.tabs.pack(expand=1, fill='both', padx=5, pady=5)
+        
+        # Modules
+        self.nextBR = nextBR_GUI(self.tab1)
+        ttk.Separator(self.tab1, orient="horizontal").pack(fill=X,expand=1, pady=(0,5))
+        self.dd = dropdowns(self.tab1)
+        self.entry = batchID(self.tab1, self.dd)
+        self.buttons = Buttons(self.tab1, self.entry)
+        self.entry.input.trace('w', self.tracer)
+        self.entry.input.set('')
+        
+        self.search = search_framework(self.tab2)
+        
+        self.labels = label_frame(self.tab3)
+        self.nextBR.next.BRVar.trace('w', self)
+        
+    def tracer(self, *args):
+        text = self.entry.input.get().replace(' ','')
+        if len(text) > 0:
+            self.buttons.b3.config(state=NORMAL)
+        else:
+            self.buttons.b3.config(state=DISABLED)
+    
+    def __call__(self, *args):
+        self.search()
+        self.labels()
+```
+#### Assign tab
+```python             
 class nextBR_GUI:
     ### Displays the Next Available BR# in Assign tab
     
@@ -292,8 +335,9 @@ class Buttons:
         except:
             self.label.config(text='An Error Occurred. Check BR Log!')
         framework.entry.e.focus()
-
-
+```
+#### Search tab
+```python
 class search_framework:
     ### This is the framework behind the Search tab that builds each individual module onto the tab
     
@@ -385,8 +429,9 @@ class results:
         self.data = [(sheet.cell(row=num+1, column=1).value, sheet.cell(row=num+1, column=2).value)
                      for num,cell in enumerate(sheet['A']) if sheet.cell(row=num+1, column=2).value is not None]
         self.data.pop(0)
-
-
+```
+#### Label tab
+```python
 class label_frame:
     ### Creates the Label tab, which is simple enough to fit in one class.
     
@@ -418,51 +463,9 @@ class label_frame:
             lm.Maker(lm.file,self.numVar.get(),self.pageVar.get())
         except:
             messagebox.showerror("Error", "File cannot be created. Make sure it is closed and try again.")
-
-
-class Framework:
-    ### The backbone of the UI. Creates and lays out each class object in the correct spot
-    ### and on the correct tab. Makes the layout modular and easily changable.
-    
-    def __init__(self, parent):
-        self.parent = parent
-        self.tabs = ttk.Notebook(self.parent)
-        self.tab1 = ttk.Frame(self.tabs)
-        self.tab2 = ttk.Frame(self.tabs)
-        self.tab3 = ttk.Frame(self.tabs)
-        self.tabs.add(self.tab1, text='  Assign  ')
-        self.tabs.add(self.tab2, text='  Search  ')
-        self.tabs.add(self.tab3, text='  Labels  ')
-        self.tabs.pack(expand=1, fill='both', padx=5, pady=5)
-        
-        # Modules
-        self.nextBR = nextBR_GUI(self.tab1)
-        ttk.Separator(self.tab1, orient="horizontal").pack(fill=X,expand=1, pady=(0,5))
-        self.dd = dropdowns(self.tab1)
-        self.entry = batchID(self.tab1, self.dd)
-        self.buttons = Buttons(self.tab1, self.entry)
-        self.entry.input.trace('w', self.tracer)
-        self.entry.input.set('')
-        
-        self.search = search_framework(self.tab2)
-        
-        self.labels = label_frame(self.tab3)
-        self.nextBR.next.BRVar.trace('w', self)
-        
-    def tracer(self, *args):
-        text = self.entry.input.get().replace(' ','')
-        if len(text) > 0:
-            self.buttons.b3.config(state=NORMAL)
-        else:
-            self.buttons.b3.config(state=DISABLED)
-    
-    def __call__(self, *args):
-        self.search()
-        self.labels()
-
-
-### Main Code
-
+```
+#### Main Code
+```python
 root =Tk()
 root.resizable(False, False)
 root.iconbitmap('dot.ico')

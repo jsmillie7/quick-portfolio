@@ -18,6 +18,13 @@
 </a>
 
 ---
+[Batch Record Management Tool](/BR_mgr)
+
+<a href="/BR_mgr">
+  <img src="images/BR1.PNG" title="Batch Record Management Tool">
+</a>
+
+---
 [3D to 2D G-code Optimizer](/3d_2d.md)
 
 <a href="/3d_2d">

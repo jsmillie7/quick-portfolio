@@ -33,11 +33,12 @@ The labels tab allows the user to generate sequential BR number labels to affix 
 
 [Here](/#) is the .pyw file on GitHub.
 
+#### Libraries and Variables
 ```python
 #!/usr/bin/env python
 # coding: utf-8
 
-### Modules and Libraries required
+### Modules and Libraries
 try:
     from tkinter import *
     from tkinter import ttk, messagebox
@@ -66,7 +67,6 @@ color = 'azure3'
 ```
 #### Global Classes
 ```python
-### Class Objects
 class nextBR:
     ### finds the next available BR# from the file.
 

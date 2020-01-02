@@ -23,6 +23,6 @@ The search tab provided a quick way to search by either BR number or Batch Recor
 
 
 #### Labels Tab:
-The labels tab allows the user to generate sequential BR number labels to affix to the folder after the number is assigned to it. The program uses [python-docx](https://python-docx.readthedocs.io/en/latest/) to create a word doc formatted to Avery 8167 labels.
+The labels tab allows the user to generate sequential BR number labels to affix to the folder after the number is assigned to it. The program uses [python-docx](https://python-docx.readthedocs.io/en/latest/) to create a word doc formatted to Avery 8167 labels. If python-docx is not installed, the UI directs the user on how to install the PyPi module.
 
 <img src="images/BR3.PNG">

@@ -23,7 +23,7 @@ This program is one of the most complex pieces of software that I have individua
 ### to here
 
 #### Step 1: Data Structure:
-The first step was to create an easily-indexable dictionary of the instruments within the laboratory. Each instrument was created as a new instance of a class called "Equipment", which allowed me to created an object with individual attributes for each HPLC, balance, and all of the other various equipment types.
+The first step was to create an easily-indexable dictionary of the instruments within the laboratory. Each instrument was created as a new instance of a class called "Equipment", which allowed the user to create an object with individual attributes for each HPLC, balance, and all of the other various equipment types.
 
 ```python
 class Equipment:
@@ -39,7 +39,7 @@ class Equipment:
             }
         self.notes = ''
 ```
-The instances were added to a dictionary in the following format:
+The instances were added to a dictionary in the following format,
 ```python
 instruments = {
    'E00001': <class obj: Equipment>,
@@ -47,7 +47,7 @@ instruments = {
    ...
 }
 ```
-Where they could be easily referenced by their offical equipment number (E#). Additional attributes, such as equipment type, serial numbers, and location within the building, could be optionally added to each instrument. Within the self.history attribute, an instance of each of the 4 possible maintenance types was created as the history() class, which contained the information of that instrument's maintenance history.
+where they could be easily referenced by their offical equipment number (E#). Additional attributes, such as equipment type, serial numbers, and location within the building, could be optionally added to each instrument. Within the self.history attribute, an instance of each of the 4 possible maintenance types was created as the history() class, which contained the information of that instrument's maintenance history.
 ```python
 class history:
     def __init__(self):
@@ -56,4 +56,7 @@ class history:
         self.analyst = None # string of who performed the maintenance
         self.number = None # each mainenance event is assigned a unique number.
 ```
-The heart of the instrument maintenance history record information is contained here. The dictionary was serialized and pickled to a .pkl file, which was loaded every time the program loaded, and saved when the user chose, and at program exit. 
+The heart of the instrument maintenance history record information is contained in the instruments dictionary. It was serialized and pickled to a .pkl file, which was loaded each time the program opened, and saved when the user chose, and at program exit. Once this was complete, the other outlined requirements above could be accomplished.
+
+#### Step 2: Monthly Email Reminder
+With a solid data structure in hand, and the manual labor behind creating instances for each of the hundreds of pieces of equipment within the lab was complete, it was time to start automating some of the tasks that this software really aimed at simplifying. The first task I chose to tackle was simple: generate and send a monthly email reminder to a list of email addresses that contained all upcoming and overdue equipment items through a shared Outlook email account. With Outlook 2017 and Windows, this was a fairly straight-forward task. 

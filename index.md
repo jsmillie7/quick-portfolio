@@ -4,10 +4,10 @@
 
 ### Software
 
-[Instrument Maintenance Manager](/instrument_mgr)
+[Batch Record Management Tool](/BR_mgr)
 
-<a href="/instrument_mgr">
-  <img src="images/InstrumentMaintenance.PNG" title="Instrument Maintenance Manager">
+<a href="/BR_mgr">
+  <img src="images/BR1.PNG" title="Batch Record Management Tool">
 </a>
 
 ---
@@ -18,10 +18,11 @@
 </a>
 
 ---
-[Batch Record Management Tool](/BR_mgr)
 
-<a href="/BR_mgr">
-  <img src="images/BR1.PNG" title="Batch Record Management Tool">
+[Instrument Maintenance Manager](/instrument_mgr)
+
+<a href="/instrument_mgr">
+  <img src="images/InstrumentMaintenance.PNG" title="Instrument Maintenance Manager">
 </a>
 
 ---

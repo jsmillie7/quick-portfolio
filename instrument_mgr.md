@@ -53,4 +53,87 @@ class history:
 The heart of the instrument maintenance history record information is contained in the instruments dictionary. It was serialized and pickled to a .pkl file, which was loaded each time the program opened, and saved when the user chose, and at program exit. Once this was complete, the other outlined requirements above could be accomplished.
 
 #### Step 2: Monthly Email Reminder
-With a solid data structure in hand, and the manual labor behind creating instances for each of the hundreds of pieces of equipment within the lab was complete, it was time to start automating some of the tasks that this software really aimed at simplifying. The first task I chose to tackle was simple: generate and send a monthly email reminder to a list of email addresses that contained all upcoming and overdue equipment items through a shared Outlook email account. With Outlook 2017 and Windows, this was a fairly straight-forward task. 
+With a solid data structure in hand, and the manual labor behind creating instances for each of the hundreds of pieces of equipment within the lab was complete, it was time to start automating some of the tasks that this software really aimed at simplifying. The first task I chose to tackle was simple: generate and send a monthly email reminder to a list of email addresses that contained all upcoming and overdue equipment items through a shared Outlook email account. With Outlook 2017 and Windows, this was a fairly straight-forward task. A class called Emailer was created to facilitate this event, which itself got pretty long in the code. The initialization of the class became:
+```python
+class Emailer:
+    def __init__(self,instuments, send=False): 
+        '''
+        Arguments in __init__:
+        instruments is a dictionary of instrument data made in step 1
+        send is a boolean, true means send immediately, false means open the message and send manually
+        
+        The following sets up the email message
+        '''
+        self.data = instruments
+        self.date = datetime.date.today() + relativedelta(months=1, day=31)
+        self.subject = 'Upcoming Required Equipment Maintenance for {} {}'.format(calendar.month_name[self.date.month], self.date.year)
+        self.get_overdue()
+        self.email_body()
+        self.emailer(Send=self.send)
+        settings.last_email = str(datetime.datetime.today())
+        settings.update()
+```
+Within init, several other definitions are called, the first being get_overdue(), which as its name implies, it searches the provided data for overdue items, and creates a dictionary sorted by duedate and type
+
+```python
+    def get_overdue(self):
+        '''
+        Returns Data Structure:
+        
+        self.overdue = {
+            datetime.date:{
+                object: [list of maintenance items due that duedate],
+                object: [list of maintenance items due that duedate],
+            },
+            
+            datetime.date:{
+                object: [list of maintenance items due that duedate]
+            }
+        }
+        
+        '''
+        
+        self.overdue = {}
+        for obj in self.data.values():
+            if obj.in_service and not obj.hidden:
+                for typ,d in obj.history.items():
+                    date = d.expiration
+                    if isinstance(date, datetime.date) and date <= self.date:
+#                         if date < self.date:
+#                             self.overdue.setdefault(date,{})
+                        self.overdue.setdefault(datetime.date(date.year, date.month, 1),{})
+                        self.overdue[datetime.date(date.year, date.month, 1)].setdefault(obj,[])
+                        self.overdue[datetime.date(date.year, date.month, 1)][obj].append(typ)
+                            
+        self.overdue = dict(sorted(self.overdue.items())) #organize dict chronologically
+```
+
+```python
+        
+    def email_body(self):
+        self.body = '<font face="calibri" size="2">This is the equipment maintenance report for {} {}. For any additional questions or errors in this report, please contact QA.<br><br><u><b>The following items are currently due for maintenance:</b></u><br>'.format(calendar.month_name[self.date.month], self.date.year)
+        for day,events in self.overdue.items():
+            self.body += '<u>{} {}</u><br>'.format(calendar.month_name[day.month],day.year)
+            for obj,items in events.items():
+                s = '{} '.format(obj.equipment_number)
+                if obj.nickname not in (None,'None'):
+                    s += '({}) '.format(obj.nickname)
+                s += '- {} in {} - {}'.format(obj.equipment_type, obj.location, items.pop(0))
+                for item in items:
+                    s += '/' + item
+                self.body += s + '<br>'
+            self.body += '<br>'
+
+    def emailer(self, Send = False):
+        outlook = win32.Dispatch('outlook.application')
+        mail = outlook.CreateItem(0)
+        mail.To = settings.email_contacts # string of email contacts saved in settings file
+        mail.CC = '' # optional email CC contact
+        mail.Subject = self.subject
+        mail.HtmlBody = self.body
+        mail.Importance = 2
+        if Send == True:
+            mail.send
+        else:
+            mail.Display(False)
+```

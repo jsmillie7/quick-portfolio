@@ -145,5 +145,5 @@ The rest of the functions called in init are used to update usage information wi
 coming soon...
 
 #### Step 4: Equipment Maintenance Sticker Generation
-<img src="images/sticker.png">
+<img src="images/sticker.png" height="150" width="295">
 coming soon...

@@ -5,6 +5,9 @@
 ## Instrument Maintenance Manager
 
 ##### for Windows
+
+<img src="images/InstrumentMaintenance.PNG">
+
 ---
 ### Background:
 Working in an analytical chemistry lab with an ISO certification, it's imperitive that instrument maintenance be performed and documented punctually. It was the responsibility of the Quality Assurance department to make sure that this was done, and I was tasked with developing a method to achieve this. Previously, several different programs had to be used together to achieve the desired results, so the goal was to develop software which fulfilled the following tasks:
@@ -64,8 +67,9 @@ class Emailer:
         
         The following sets up the email message
         '''
+        self.send = send
         self.data = instruments
-        self.date = datetime.date.today() + relativedelta(months=1, day=31)
+        self.date = datetime.date.today() + relativedelta(months=1, day=31) # end of next month
         self.subject = 'Upcoming Required Equipment Maintenance for {} {}'.format(calendar.month_name[self.date.month], self.date.year)
         self.get_overdue()
         self.email_body()
@@ -78,19 +82,16 @@ Within init, several other definitions are called, the first being get_overdue()
 ```python
     def get_overdue(self):
         '''
-        Returns Data Structure:
-        
+        Returns self.overdue with the following data structure:
         self.overdue = {
             datetime.date:{
                 object: [list of maintenance items due that duedate],
                 object: [list of maintenance items due that duedate],
-            },
-            
+                },
             datetime.date:{
                 object: [list of maintenance items due that duedate]
+                }
             }
-        }
-        
         '''
         
         self.overdue = {}
@@ -99,19 +100,17 @@ Within init, several other definitions are called, the first being get_overdue()
                 for typ,d in obj.history.items():
                     date = d.expiration
                     if isinstance(date, datetime.date) and date <= self.date:
-#                         if date < self.date:
-#                             self.overdue.setdefault(date,{})
+                        ### check if the date and type exist yet:
                         self.overdue.setdefault(datetime.date(date.year, date.month, 1),{})
                         self.overdue[datetime.date(date.year, date.month, 1)].setdefault(obj,[])
+                        ### add item to overdue dict
                         self.overdue[datetime.date(date.year, date.month, 1)][obj].append(typ)
-                            
         self.overdue = dict(sorted(self.overdue.items())) #organize dict chronologically
 ```
-
-```python
-        
+Next, init calls self.email_body(), which creates the body text that will be displayed in the email by iterating through each overdue item and listing its attributes and due dates:
+```python 
     def email_body(self):
-        self.body = '<font face="calibri" size="2">This is the equipment maintenance report for {} {}. For any additional questions or errors in this report, please contact QA.<br><br><u><b>The following items are currently due for maintenance:</b></u><br>'.format(calendar.month_name[self.date.month], self.date.year)
+        self.body = 'This is the equipment maintenance report for {} {}.'.format(calendar.month_name[self.date.month], self.date.year)
         for day,events in self.overdue.items():
             self.body += '<u>{} {}</u><br>'.format(calendar.month_name[day.month],day.year)
             for obj,items in events.items():
@@ -123,8 +122,10 @@ Within init, several other definitions are called, the first being get_overdue()
                     s += '/' + item
                 self.body += s + '<br>'
             self.body += '<br>'
-
-    def emailer(self, Send = False):
+```
+Finally, init calls self.emailer(), which constructs the email in Outlook and either sends it or opens the composition depending on your choice of the attribute 'Send'. It takes advantage of the windows-only module [win32com.client](https://pypi.org/project/pywin32/), and works effortlessly. 
+```python
+    def emailer(self):
         outlook = win32.Dispatch('outlook.application')
         mail = outlook.CreateItem(0)
         mail.To = settings.email_contacts # string of email contacts saved in settings file
@@ -132,8 +133,9 @@ Within init, several other definitions are called, the first being get_overdue()
         mail.Subject = self.subject
         mail.HtmlBody = self.body
         mail.Importance = 2
-        if Send == True:
+        if self.send == True:
             mail.send
         else:
-            mail.Display(False)
+            mail.Display(True)
 ```
+The rest of the functions called in init are used to update usage information within the settings file, which is beyond the scope of this. 

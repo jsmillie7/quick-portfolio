@@ -6,6 +6,8 @@
 
 ##### for Windows
 
+<a name="abcd"></a>
+
 <img src="images/InstrumentMaintenance.PNG">
 
 ---
@@ -139,3 +141,4 @@ Finally, init calls self.emailer(), which constructs the email in Outlook and ei
             mail.Display(True)
 ```
 The rest of the functions called in init are used to update usage information within the settings file, which is beyond the scope of this. 
+[link text](#abcd)

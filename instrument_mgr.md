@@ -11,14 +11,13 @@
 ---
 ### Background:
 Working in an analytical chemistry lab with an ISO certification, it's imperitive that instrument maintenance be performed and documented punctually. It was the responsibility of the Quality Assurance department to make sure that this was done, and I was tasked with developing a method to achieve this. Previously, several different programs had to be used together to achieve the desired results, so the goal was to develop software which fulfilled the following tasks:
-* Create a [data structure](#1) that allows for ease of access to data records, secure storage of records, as well as track and easily update individual instrument maintenance.
-* Send out [monthly reminder emails](#2) for upcoming maintenance
-* Interface with a shared Microsoft Outlook calendar to sync maintenance events
+* Create a [data structure](#step-1-data-structure) that allows for ease of access to data records, secure storage of records, as well as track and easily update individual instrument maintenance.
+* Send out [monthly reminder emails](#step-2-monthly-email-reminder) for upcoming maintenance
+* [Interface with a shared Microsoft Outlook calendar](#step-3-outlook-calendar-interface) to sync maintenance events
 * Print out ISO-mandated maintenance stickers for instruments
 
 This program is one of the most complex pieces of software that I have individually developed. I was able to simplify the overall complexity by taking advantage of python's object-oriented programming language and modularizing the overall GUI into individual frames, which made upgrades and changes much easier. The entire code is long, messy, and a bit hard to read, so for this portfolio entry, I will go over some key functions implemented in the backend without going in depth about Tkinter and the rest of the front-end.
 
-<a name="1"></a>
 #### Step 1: Data Structure:
 The first step was to create an easily-indexable dictionary of the instruments within the laboratory. Each instrument was created as a new instance of a class called "Equipment", which allowed the user to create an object with individual attributes for each HPLC, balance, and all of the other various equipment types.
 
@@ -54,8 +53,6 @@ class history:
         self.number = None # each mainenance event is assigned a unique number.
 ```
 The heart of the instrument maintenance history record information is contained in the instruments dictionary. It was serialized and pickled to a .pkl file, which was loaded each time the program opened, and saved when the user chose, and at program exit. Once this was complete, the other outlined requirements above could be accomplished.
-
-<a name="2"></a>
 
 #### Step 2: Monthly Email Reminder
 With a solid data structure in hand, and the manual labor behind creating instances for each of the hundreds of pieces of equipment within the lab was complete, it was time to start automating some of the tasks that this software really aimed at simplifying. The first task I chose to tackle was simple: generate and send a monthly email reminder to a list of email addresses that contained all upcoming and overdue equipment items through a shared Outlook email account. With Outlook 2017 and Windows, this was a fairly straight-forward task. A class called Emailer was created to facilitate this event, which itself got pretty long in the code. The initialization of the class became:
@@ -142,3 +139,4 @@ Finally, init calls self.emailer(), which constructs the email in Outlook and ei
 ```
 The rest of the functions called in init are used to update usage information within the settings file, which is beyond the scope of this. 
 
+#### Step 3: Outlook calendar interface

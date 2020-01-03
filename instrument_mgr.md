@@ -14,7 +14,7 @@ Working in an analytical chemistry lab with an ISO certification, it's imperitiv
 * Create a [data structure](#step-1-data-structure) that allows for ease of access to data records, secure storage of records, as well as track and easily update individual instrument maintenance.
 * Send out [monthly reminder emails](#step-2-monthly-email-reminder) for upcoming maintenance
 * [Interface with a shared Microsoft Outlook calendar](#step-3-outlook-calendar-interface) to sync maintenance events
-* Print out ISO-mandated maintenance stickers for instruments
+* Print out ISO-mandated [maintenance stickers](#step-4-equipment-maintenance-sticker-generation) for instruments
 
 This program is one of the most complex pieces of software that I have individually developed. I was able to simplify the overall complexity by taking advantage of python's object-oriented programming language and modularizing the overall GUI into individual frames, which made upgrades and changes much easier. The entire code is long, messy, and a bit hard to read, so for this portfolio entry, I will go over some key functions implemented in the backend without going in depth about Tkinter and the rest of the front-end.
 
@@ -146,4 +146,5 @@ coming soon...
 
 #### Step 4: Equipment Maintenance Sticker Generation
 <img src="images/sticker.png" height="150" width="295">
+
 coming soon...

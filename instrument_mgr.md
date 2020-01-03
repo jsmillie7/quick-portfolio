@@ -18,6 +18,8 @@ Working in an analytical chemistry lab with an ISO certification, it's imperitiv
 
 This program is one of the most complex pieces of software that I have individually developed. I was able to simplify the overall complexity by taking advantage of python's object-oriented programming language and modularizing the overall GUI into individual frames, which made upgrades and changes much easier. The entire code is long, messy, and a bit hard to read, so for this portfolio entry, I will go over some key functions implemented in the backend without going in depth about Tkinter and the rest of the front-end.
 
+### Development:
+
 #### Step 1: Data Structure:
 The first step was to create an easily-indexable dictionary of the instruments within the laboratory. Each instrument was created as a new instance of a class called "Equipment", which allowed the user to create an object with individual attributes for each HPLC, balance, and all of the other various equipment types.
 
@@ -76,7 +78,7 @@ class Emailer:
         settings.last_email = str(datetime.datetime.today())
         settings.update()
 ```
-Within init, several other definitions are called, the first being get_overdue(), which as its name implies, it searches the provided data for overdue items, and creates a dictionary sorted by duedate and type
+Within init, several other definitions are called, the first being self.get_overdue(), which as its name implies, it searches the provided data for overdue items, and creates a dictionary sorted by duedate and type
 
 ```python
     def get_overdue(self):
@@ -140,3 +142,8 @@ Finally, init calls self.emailer(), which constructs the email in Outlook and ei
 The rest of the functions called in init are used to update usage information within the settings file, which is beyond the scope of this. 
 
 #### Step 3: Outlook calendar interface
+coming soon...
+
+#### Step 4: Equipment Maintenance Sticker Generation
+<img src="images/sticker.png">
+coming soon...

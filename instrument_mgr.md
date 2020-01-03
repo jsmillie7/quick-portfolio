@@ -7,7 +7,9 @@
 ##### for Windows
 ---
 ### Background:
-Working in an analytical chemistry lab with an ISO certification, it's imperitive that instrument maintenance be performed and documented punctually. It was the responsibility of the Quality Assurance department to make sure that this was done, and I was tasked with developing a method to achieve this. Previously, several different programs had to be used together to achieve the desired results, so the goal was to develop a user interface with Tkinter that allowed a user to achieve the following required goals without switching between programs:
+Working in an analytical chemistry lab with an ISO certification, it's imperitive that instrument maintenance be performed and documented punctually. It was the responsibility of the Quality Assurance department to make sure that this was done, and I was tasked with developing a method to achieve this. Previously, several different programs had to be used together to achieve the desired results, so the goal was to develop software which fulfilled the following tasks:
+* Create a data structure that allows for ease of access to data records, and allows for secure storage of records.
+### update below
 * Send out monthly reminder emails for upcoming maintenance
     * this was a manual task which required the sender to create a list of upcoming equipment by scrolling through a log and adding each item, which was tedious and error-prone. Python can do this faster without error.
 * Interface with a shared Microsoft Outlook calendar to sync maintenance events
@@ -18,13 +20,15 @@ Working in an analytical chemistry lab with an ISO certification, it's imperitiv
     * This was previously not done, which led to some instruments missing a calibration date, so implementing this was very important for the Quality system. This ties the first 3 requirements together into one place.
 
 This program is one of the most complex pieces of software that I have individually developed.  I was able to simplify the overall complexity by taking advantage of python's object-oriented programming language, and "chunking" the overall GUI into individual modules. This made upgrades and changes much easier.
+### to here
 
-### Process:
+#### Step 1: Data Structure:
 The first step was to create an easily-indexable dictionary of the instruments within the laboratory. Each instrument was created as a new instance of a class called "Equipment", which allowed me to created an object with individual attributes for each HPLC, balance, and all of the other various equipment types.
 
 ```python
 class Equipment:
     def __init__(self):
+        self.equpiment_number = None
         self.hidden = False
         self.in_service = True
         self.history = {
@@ -47,9 +51,9 @@ Where they could be easily referenced by their offical equipment number (E#). Ad
 ```python
 class history:
     def __init__(self):
-        self.date = None
-        self.expiration = None
-        self.analyst = None
-        self.number = None
+        self.date = None # the date of the maintenance in datetime.date format
+        self.expiration = None # when the next maintenance item is due (datetime.date)
+        self.analyst = None # string of who performed the maintenance
+        self.number = None # each mainenance event is assigned a unique number.
 ```
-
+The heart of the instrument maintenance history record information is contained here. The dictionary was serialized and pickled to a .pkl file, which was loaded every time the program loaded, and saved when the user chose, and at program exit. 

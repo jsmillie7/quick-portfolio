@@ -31,7 +31,7 @@ The labels tab allows the user to generate sequential BR number labels to affix 
 
 ### Code:
 
-[Here](/#) is the .pyw file on GitHub.
+[Here](https://github.com/jsmillie7/python_examples/tree/master/BRM) is the .pyw file on GitHub.
 
 #### Libraries and Variables
 ```python

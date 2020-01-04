@@ -71,7 +71,7 @@ class Emailer:
         self.send = send
         self.data = instruments
         self.date = datetime.date.today() + relativedelta(months=1, day=31) # end of next month
-        self.subject = 'Upcoming Required Equipment Maintenance for {} {}'.format(calendar.month_name[self.date.month], self.date.year)
+        self.subject = 'SUBJECT TEXT'
         self.get_overdue()
         self.email_body()
         self.emailer(Send=self.send)
@@ -108,22 +108,9 @@ Within init, several other definitions are called, the first being self.get_over
                         self.overdue[datetime.date(date.year, date.month, 1)][obj].append(typ)
         self.overdue = dict(sorted(self.overdue.items())) #organize dict chronologically
 ```
-Next, init calls self.email_body(), which creates the body text that will be displayed in the email by iterating through each overdue item and listing its attributes and due dates:
-```python 
-    def email_body(self):
-        self.body = 'This is the equipment maintenance report for {} {}.'.format(calendar.month_name[self.date.month], self.date.year)
-        for day,events in self.overdue.items():
-            self.body += '<u>{} {}</u><br>'.format(calendar.month_name[day.month],day.year)
-            for obj,items in events.items():
-                s = '{} '.format(obj.equipment_number)
-                if obj.nickname not in (None,'None'):
-                    s += '({}) '.format(obj.nickname)
-                s += '- {} in {} - {}'.format(obj.equipment_type, obj.location, items.pop(0))
-                for item in items:
-                    s += '/' + item
-                self.body += s + '<br>'
-            self.body += '<br>'
-```
+Next, init calls self.email_body(), which creates the body text that will be displayed in the email by iterating through each overdue item and listing its attributes and due dates. It returns a string that will be used for the body text later.
+
+
 Finally, init calls self.emailer(), which constructs the email in Outlook and either sends it or opens the composition depending on your choice of the attribute 'Send'. It takes advantage of the windows-only module [win32com.client](https://pypi.org/project/pywin32/), and works effortlessly. 
 ```python
     def emailer(self):
@@ -174,19 +161,15 @@ I added several ancillary functions to the class to perform various actions, the
     def add_appointment(self, obj, m_type):
         new_apt = self.sharedCalendar.Items.Add(1)
         new_apt.Start = str(obj.history[m_type].expiration)
-        new_apt.Subject = '{} - {}'.format(m_type, obj.equipment_number)
-        new_apt.Body = \
-        '''Equipment: {}
-Equipment Name: {}
-Maintenance Type: {}
-Location: {}'''.format(obj.equipment_number, obj.nickname, m_type, obj.location)
+        new_apt.Subject = 'SUBJECT'
+        new_apt.Body = 'BODY TEXT'
         new_apt.AllDayEvent = 1
         new_apt.Importance = 2
         new_apt.BusyStatus = 0
         new_apt.ReminderOverrideDefault = True
         new_apt.ForceUpdateToAllAttendees = 1
         new_apt.ReminderSet = True
-        new_apt.RequiredAttendees = 'xxx' # email addresses of required contacts 
+        new_apt.RequiredAttendees = 'EMAIL ADDRESSES' # email addresses of required contacts 
         new_apt.ResponseRequested = 0
         new_apt.Location = obj.location
         new_apt.ReminderMinutesBeforeStart = 1440

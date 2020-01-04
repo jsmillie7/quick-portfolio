@@ -45,7 +45,7 @@ instruments = {
    ...
 }
 ```
-where they could be easily referenced by their offical equipment number (E#). Additional attributes, such as equipment type, serial numbers, and location within the building, could be optionally added to each instrument. Within the self.history attribute, an instance of each of the 4 possible maintenance types was created as the history() class, which contained the information of that instrument's maintenance history.
+where they could be easily referenced by their official equipment number (E#). Additional attributes, such as equipment type, serial numbers, and location within the building, could be optionally added to each instrument. Within the self.history attribute, an instance of each of the 4 possible maintenance types was created as the history() class, which contained the information of that instrument's maintenance history.
 ```python
 class history:
     def __init__(self):
@@ -111,7 +111,7 @@ Within init, several other definitions are called, the first being self.get_over
 Next, init calls self.email_body(), which creates the body text that will be displayed in the email by iterating through each overdue item and listing its attributes and due dates. It returns a string called self.body that will be used for the body text in the next function.
 
 
-Finally, init calls self.emailer(), which constructs the email in Outlook and either sends it or opens the composition depending on your choice of the attribute 'Send'. It takes advantage of the windows-only module [win32com.client](https://pypi.org/project/pywin32/), and works effortlessly. 
+Finally, init calls self.emailer(), which constructs the email in Outlook and either sends it or opens the composition depending on your choice of the attribute self.send. It takes advantage of the windows-only module [win32com.client](https://pypi.org/project/pywin32/), and generates an automated report that is sent to the specified email addresses. 
 ```python
     def emailer(self):
         outlook = win32.Dispatch('outlook.application')
@@ -121,7 +121,7 @@ Finally, init calls self.emailer(), which constructs the email in Outlook and ei
         mail.Subject = self.subject
         mail.HtmlBody = self.body
         mail.Importance = 2
-        if self.send == True:
+        if self.send:
             mail.send
         else:
             mail.Display(True)
@@ -184,6 +184,8 @@ I added several ancillary functions to the class to perform various actions, the
         self()
 ```
 Ultimately, the Calendar is built from the Equipment.history[xx].expiration class variables. Keeping two points of reference allows for rebuilding the calendar if something happens to the public Outlook calendar.
+
+> Note: Adding a discrepency indicator between the Outlook calendar and the instrument due dates at program launch would be useful to show if the public, shared calendar was inadvertently changed by an onlooker.
 
 #### Step 4: Equipment Maintenance Sticker Generation
 The last task I am going to highlight from this software development was to find a way to generate a few different types of stickers that could be formatted to fit on a 4"x2" label that could be automatically printed from our networked label printer. Maintenance stickers were historically handwritten by members of QA with varying levels of legibility and accuracy. Since accurate maintenance information is required to be on the instruments per ISO 17025:2017, an incorrect label could jeopardize the laboratory accredation. Automating the label creation would eliminate any human-error. Using the pypi module [ReportLab](https://pypi.org/project/reportlab/), the program generats a pdf sticker.

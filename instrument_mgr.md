@@ -186,6 +186,7 @@ I added several ancillary functions to the class to perform various actions, the
 Ultimately, the Calendar is built from the Equipment.history[xx].expiration class variables. Keeping two points of reference allows for rebuilding the calendar if something happens to the public Outlook calendar.
 
 #### Step 4: Equipment Maintenance Sticker Generation
+The last task I am going to highlight from this software development was to find a way to generate a few different types of stickers that could be formatted to fit on a 4"x2" label that could be automatically printed from our networked label printer. Maintenance stickers were historically handwritten by members of QA with varying levels of legibility and accuracy. Since accurate maintenance information is required to be on the instruments per ISO 17025:2017, an incorrect label could jeopardize the laboratory accredation. Automating the label creation would eliminate any human-error.
 <img src="images/sticker.png" height="150" width="295">
 
 coming soon...

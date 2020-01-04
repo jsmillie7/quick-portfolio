@@ -2,6 +2,16 @@
 
 ---
 
+### [Instrument Maintenance Manager](/instrument_mgr)
+
+<p align="center">
+  <a href="/instrument_mgr">
+    <img src="images/InstrumentMaintenance.PNG" title="Instrument Maintenance Manager">
+  </a>
+</p>
+
+---
+
 ## Software
 
 ### [Batch Record Management Tool](/BR_mgr)
@@ -18,16 +28,6 @@
 <p align="center">
   <a href="/data_encryption">
     <img src="images/encrypter1.png" title="SHA-256 Data Encryption Tool">
-  </a>
-</p>
-
----
-
-### [Instrument Maintenance Manager](/instrument_mgr)
-
-<p align="center">
-  <a href="/instrument_mgr">
-    <img src="images/InstrumentMaintenance.PNG" title="Instrument Maintenance Manager">
   </a>
 </p>
 

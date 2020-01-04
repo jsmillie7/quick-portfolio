@@ -151,7 +151,7 @@ class Calendar:
     
     def __call__(self):
         self.read_cal()
-        self.parse_calendar()
+        self.parse_cal()
         
     def read_cal(self):
         self.outlook = win32com.client.Dispatch("Outlook.Application")
@@ -160,19 +160,17 @@ class Calendar:
         self.sharedCalendar = self.recipient.Folders('Calendar')
         self.appointments = self.sharedCalendar.Items
    
-    def parse_calendar(self):
+    def parse_cal(self):
         self.parsed_cal = {}
         for apt in self.appointments:
             m_type, e_num = apt.Subject.split(' - ')
             self.parsed_cal.setdefault(e_num,{})
             self.parsed_cal[e_num][m_type] = apt
 ```
-yes
-```python
-    def delete_appointment(self, e_num, m_type):
-        event = self.parsed_cal[e_num][m_type]
-        event.Delete()
-        
+Any time an instace of this class is created or called, 2 functions run: self.read_cal() opens the Outlook calendar and reads the appointment items from it. self.parse_cal() creates a dictionary of all appointments by equipment number.
+
+I added several ancillary functions to the class to perform various functions. Here I highlight a few, which have pretty obvious titles:
+```python    
     def add_appointment(self, obj, m_type):
         new_apt = self.sharedCalendar.Items.Add(1)
         new_apt.Start = str(obj.history[m_type].expiration)
@@ -186,44 +184,19 @@ Location: {}'''.format(obj.equipment_number, obj.nickname, m_type, obj.location)
         new_apt.Importance = 2
         new_apt.BusyStatus = 0
         new_apt.ReminderOverrideDefault = True
-            
         new_apt.ForceUpdateToAllAttendees = 1
         new_apt.ReminderSet = True
-        new_apt.RequiredAttendees = settings.weight_set_contacts
+        new_apt.RequiredAttendees = 'xxx' # email addresses of required contacts 
         new_apt.ResponseRequested = 0
         new_apt.Location = obj.location
-        
-        
-        if obj.equipment_type != 'Weight Set':
-            rp = new_apt.GetRecurrencePattern()
-            rp.RecurrenceType = 5 # olRecursYearly
-            new_apt.ReminderMinutesBeforeStart = settings.cal_reminder_mins
-            new_apt.MeetingStatus = 0
-            
-        else:
-            new_apt.ReminderMinutesBeforeStart = 1440
-            new_apt.MeetingStatus = 1
-            new_apt.Send()
-            
+        new_apt.ReminderMinutesBeforeStart = 1440
+        new_apt.MeetingStatus = 1
+        new_apt.Send()
         new_apt.Save()
-        
-    def update_appointment(self, obj, m_type):
-        try: self.add_appointment(obj, m_type)
-        except: messagebox.showinfo("Error", 'Could Not Add to Calendar')
-        try: self.delete_appointment(obj.equipment_number, m_type)
-        except: pass
-        self()
-
     
-    def update_calendar(self):
-        # updates any existing appointments, but ignores any that dont have a duedate
-        for obj in lc.values():
-            for m_type,d in obj.history.items():
-                date = d.expiration
-                if isinstance(date, datetime.date):
-                    self.update_appointment(obj, m_type)
-        return True
-    
+    def delete_appointment(self, e_num, m_type):
+        event = self.parsed_cal[e_num][m_type]
+        event.Delete()
     
     def rebuild_calendar(self):
         # deletes all items on calendar before adding all events

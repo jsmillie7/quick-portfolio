@@ -250,42 +250,38 @@ Next, self.outline() draws all of the lines one the sticker. self.labels() draws
         self.c.drawString(self.width//2 + self.offset,50,'OQ Expiration:')
         self.c.drawString(self.width//2 + self.offset,20,'Performed By:')
 ```
-
+Finally, the program will fill in the dynamic information with self.fill_info() and self.formatter('xxx') is used to format the datetime.date variables and strings into the desired format. 
 ```python
     def fill_info(self):
-        self.c.setFont('Helvetica', 30)
-        
+        self.c.setFont(self.font, 30)
         if self.PM is None:
             self.PM = 'PM- N/A'
         self.c.drawString(self.offset,92,self.PM)
-        
         if self.OQ is None:
             self.OQ = 'OQ- N/A'
         self.c.drawString(self.width//2 + self.offset,92,self.OQ)
-        
-        self.c.setFont('Helvetica', 16)
+        self.c.setFont(self.font, 16)
         self.c.drawString(self.offset,65,self.formatter(self.PM_date))
         self.c.drawString(self.offset,35,self.formatter(self.PM_expiration))
         self.c.drawString(self.offset,5,self.formatter(self.biannual_due))
-
         self.c.drawString(self.width//2 + self.offset,65,self.formatter(self.OQ_date))
         self.c.drawString(self.width//2 + self.offset,35,self.formatter(self.OQ_expiration))
         self.c.drawString(self.width//2 + self.offset,5,self.formatter(self.completed_by))
-        
         if self.e_number is not None:
-            self.c.setFont('Helvetica', 14)
+            self.c.setFont(self.font, 14)
             self.c.drawString(4*self.width/5,self.height-18,self.e_number)
-        
             
     def formatter(self, value):
         if isinstance(value, datetime.date):
             return '{:02d}-{}-{}'.format(value.day,calendar.month_abbr[value.month],str(value.year))#[2:])
         elif isinstance(value,str):
             if len(value)>16:
-                self.c.setFont('Helvetica', 12)
+                size = 12
             else:
-                self.c.setFont('Helvetica', 16)
+                size = 16
+            self.c.setFont(self.font, size)
             return value
         else:
             return 'N/A'
 ```
+And with the addition of this script, the program has achieved the 4 goals set out for it. The software includes several more features, like the ability to add and delete instruments, place them in or out of service, update instrument information, generate logs of specific equipment (overdue, all HPLCs, every item in a specific lab area, etc.), and many more, but this entry is long enough as it is. 

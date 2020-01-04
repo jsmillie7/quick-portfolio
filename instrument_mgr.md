@@ -10,7 +10,7 @@
 
 ---
 ### Background:
-Working in an analytical chemistry lab with an ISO certification, it's imperitive that instrument maintenance be performed and documented punctually. It was the responsibility of the Quality Assurance department to make sure that this was done, and I was tasked with developing a method to achieve this. Previously, several different programs had to be used together to achieve the desired results, so the goal was to develop software which fulfilled the following tasks:
+Working in an analytical chemistry lab with an ISO certification, it's imperitive that instrument maintenance be performed and documented punctually. It was the responsibility of the Quality Assurance department to make sure that this was done, and I was tasked with developing a method to achieve this. Previously, several different programs had to be used together to achieve the desired results, so the goal was to develop software which could simplify the work. The following were the goals of this project:
 * Create a [data structure](#step-1-data-structure) that allows for ease of access to data records, secure storage of records, as well as track and easily update individual instrument maintenance.
 * Send out [monthly reminder emails](#step-2-monthly-email-reminder) for upcoming maintenance
 * [Interface with a shared Microsoft Outlook calendar](#step-3-outlook-calendar-interface) to sync maintenance events

@@ -188,8 +188,9 @@ Ultimately, the Calendar is built from the Equipment.history[xx].expiration clas
 #### Step 4: Equipment Maintenance Sticker Generation
 The last task I am going to highlight from this software development was to find a way to generate a few different types of stickers that could be formatted to fit on a 4"x2" label that could be automatically printed from our networked label printer. Maintenance stickers were historically handwritten by members of QA with varying levels of legibility and accuracy. Since accurate maintenance information is required to be on the instruments per ISO 17025:2017, an incorrect label could jeopardize the laboratory accredation. Automating the label creation would eliminate any human-error. Using the pypi module [ReportLab](https://pypi.org/project/reportlab/), the program generats a pdf sticker.
 
-<img align="center" src="images/sticker.png" height="150" width="295" title="Example of a Python Generated Maintenance Sticker">
-
+<p align="center">
+    <img src="images/sticker.png" height="150" width="295" title="Example of a Python Generated Maintenance Sticker">
+</p>
 A class named Sticker is used to generate the stickers dynamically. The arguments required to create a Sticker object are the Equipment class object and a filename, which was normally left to its default filename.
 
 ```python

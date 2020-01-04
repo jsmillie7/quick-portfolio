@@ -142,7 +142,95 @@ Finally, init calls self.emailer(), which constructs the email in Outlook and ei
 The rest of the functions called in init are used to update usage information within the settings file, which is beyond the scope of this. 
 
 #### Step 3: Outlook calendar interface
-coming soon...
+Another important feature of this software was the ability to add maintenance due dates to an Outlook calendar for the entire laboratory to reference. Again using the win32com.client module, a new class called Calendar was devised:
+
+```python
+class Calendar:
+    def __init__(self):
+        self()
+    
+    def __call__(self):
+        self.read_cal()
+        self.parse_calendar()
+        
+    def read_cal(self):
+        self.outlook = win32com.client.Dispatch("Outlook.Application")
+        self.namespace = self.outlook.GetNamespace("MAPI")
+        self.recipient = self.namespace.Folders(settings.calendar_account)
+        self.sharedCalendar = self.recipient.Folders('Calendar')
+        self.appointments = self.sharedCalendar.Items
+   
+    def parse_calendar(self):
+        self.parsed_cal = {}
+        for apt in self.appointments:
+            m_type, e_num = apt.Subject.split(' - ')
+            self.parsed_cal.setdefault(e_num,{})
+            self.parsed_cal[e_num][m_type] = apt
+```
+yes
+```python
+    def delete_appointment(self, e_num, m_type):
+        event = self.parsed_cal[e_num][m_type]
+        event.Delete()
+        
+    def add_appointment(self, obj, m_type):
+        new_apt = self.sharedCalendar.Items.Add(1)
+        new_apt.Start = str(obj.history[m_type].expiration)
+        new_apt.Subject = '{} - {}'.format(m_type, obj.equipment_number)
+        new_apt.Body = \
+        '''Equipment: {}
+Equipment Name: {}
+Maintenance Type: {}
+Location: {}'''.format(obj.equipment_number, obj.nickname, m_type, obj.location)
+        new_apt.AllDayEvent = 1
+        new_apt.Importance = 2
+        new_apt.BusyStatus = 0
+        new_apt.ReminderOverrideDefault = True
+            
+        new_apt.ForceUpdateToAllAttendees = 1
+        new_apt.ReminderSet = True
+        new_apt.RequiredAttendees = settings.weight_set_contacts
+        new_apt.ResponseRequested = 0
+        new_apt.Location = obj.location
+        
+        
+        if obj.equipment_type != 'Weight Set':
+            rp = new_apt.GetRecurrencePattern()
+            rp.RecurrenceType = 5 # olRecursYearly
+            new_apt.ReminderMinutesBeforeStart = settings.cal_reminder_mins
+            new_apt.MeetingStatus = 0
+            
+        else:
+            new_apt.ReminderMinutesBeforeStart = 1440
+            new_apt.MeetingStatus = 1
+            new_apt.Send()
+            
+        new_apt.Save()
+        
+    def update_appointment(self, obj, m_type):
+        try: self.add_appointment(obj, m_type)
+        except: messagebox.showinfo("Error", 'Could Not Add to Calendar')
+        try: self.delete_appointment(obj.equipment_number, m_type)
+        except: pass
+        self()
+
+    
+    def update_calendar(self):
+        # updates any existing appointments, but ignores any that dont have a duedate
+        for obj in lc.values():
+            for m_type,d in obj.history.items():
+                date = d.expiration
+                if isinstance(date, datetime.date):
+                    self.update_appointment(obj, m_type)
+        return True
+    
+    
+    def rebuild_calendar(self):
+        # deletes all items on calendar before adding all events
+        for item in self.appointments:
+            item.Delete()
+        self.update_calendar()
+```
 
 #### Step 4: Equipment Maintenance Sticker Generation
 <img src="images/sticker.png" height="150" width="295">

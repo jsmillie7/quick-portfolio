@@ -1,17 +1,17 @@
-## Portfolio
+# Portfolio
 
 ---
 
-### Software
+## Software
 
-[Batch Record Management Tool](/BR_mgr)
+### [Batch Record Management Tool](/BR_mgr)
 
 <a href="/BR_mgr">
   <img src="images/BR1.PNG" title="Batch Record Management Tool">
 </a>
 
 ---
-[SHA-256 Data Encryption Tool](/data_encryption)
+### [SHA-256 Data Encryption Tool](/data_encryption)
 
 <a href="/data_encryption">
   <img src="images/encrypter1.png" title="SHA-256 Data Encryption Tool">

@@ -108,7 +108,7 @@ Within init, several other definitions are called, the first being self.get_over
                         self.overdue[datetime.date(date.year, date.month, 1)][obj].append(typ)
         self.overdue = dict(sorted(self.overdue.items())) #organize dict chronologically
 ```
-Next, init calls self.email_body(), which creates the body text that will be displayed in the email by iterating through each overdue item and listing its attributes and due dates. It returns a string that will be used for the body text later.
+Next, init calls self.email_body(), which creates the body text that will be displayed in the email by iterating through each overdue item and listing its attributes and due dates. It returns a string called self.body that will be used for the body text in the next function.
 
 
 Finally, init calls self.emailer(), which constructs the email in Outlook and either sends it or opens the composition depending on your choice of the attribute 'Send'. It takes advantage of the windows-only module [win32com.client](https://pypi.org/project/pywin32/), and works effortlessly. 

@@ -1,6 +1,7 @@
 # Portfolio
 
 ---
+## Software
 
 ### [Instrument Maintenance Manager](/instrument_mgr)
 
@@ -11,8 +12,6 @@
 </p>
 
 ---
-
-## Software
 
 ### [Batch Record Management Tool](/BR_mgr)
 

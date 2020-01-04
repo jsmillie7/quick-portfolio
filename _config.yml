@@ -4,8 +4,8 @@ degree: BA, Physics - University of Colorado
 description: > # your text below (remove <br> elements if you don't need line breaks)
   <a href="about">> See my resume</a>
   <br>
-  <a href="#software">> Software</a>
+  <a href="index#software">> Software</a>
   <br>
-  <a href="#hardware">> Hardware</a>
+  <a href="index#hardware">> Hardware</a>
   
 theme: jekyll-theme-dinky

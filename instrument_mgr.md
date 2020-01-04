@@ -167,7 +167,7 @@ class Calendar:
             self.parsed_cal.setdefault(e_num,{})
             self.parsed_cal[e_num][m_type] = apt
 ```
-Any time an instace of this class is created or called, 2 functions run: self.read_cal() opens the Outlook calendar and reads the appointment items from it. self.parse_cal() creates a dictionary of all appointments by equipment number.
+Any time an instance of this class is created or called, 2 functions run: self.read_cal() opens the Outlook calendar and reads the appointment items from it. self.parse_cal() creates a dictionary of all appointments by equipment number. This dictionary can thus be live updated whenver an item is added or removed from the calendar. 
 
 I added several ancillary functions to the class to perform various actions, the most important of which allowed adding and deleting appointments to the calendar. With this, the calendar can be built and maintained with just a few clicks.
 ```python    
@@ -193,11 +193,14 @@ Location: {}'''.format(obj.equipment_number, obj.nickname, m_type, obj.location)
         new_apt.MeetingStatus = 1
         new_apt.Send()
         new_apt.Save()
+        self()
     
     def delete_appointment(self, e_num, m_type):
         event = self.parsed_cal[e_num][m_type]
         event.Delete()
+        self()
 ```
+Ultimately, the Calendar is built from the Equipment.history[xx].expiration class variables. Keeping two points of reference allows for rebuilding the calendar if something happens to the public Outlook calendar.
 
 #### Step 4: Equipment Maintenance Sticker Generation
 <img src="images/sticker.png" height="150" width="295">

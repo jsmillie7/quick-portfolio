@@ -169,7 +169,7 @@ class Calendar:
 ```
 Any time an instace of this class is created or called, 2 functions run: self.read_cal() opens the Outlook calendar and reads the appointment items from it. self.parse_cal() creates a dictionary of all appointments by equipment number.
 
-I added several ancillary functions to the class to perform various functions. Here I highlight a few, which have pretty obvious titles:
+I added several ancillary functions to the class to perform various actions, the most important of which allowed adding and deleting appointments to the calendar. With this, the calendar can be built and maintained with just a few clicks.
 ```python    
     def add_appointment(self, obj, m_type):
         new_apt = self.sharedCalendar.Items.Add(1)
@@ -197,12 +197,6 @@ Location: {}'''.format(obj.equipment_number, obj.nickname, m_type, obj.location)
     def delete_appointment(self, e_num, m_type):
         event = self.parsed_cal[e_num][m_type]
         event.Delete()
-    
-    def rebuild_calendar(self):
-        # deletes all items on calendar before adding all events
-        for item in self.appointments:
-            item.Delete()
-        self.update_calendar()
 ```
 
 #### Step 4: Equipment Maintenance Sticker Generation

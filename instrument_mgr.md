@@ -186,7 +186,105 @@ I added several ancillary functions to the class to perform various actions, the
 Ultimately, the Calendar is built from the Equipment.history[xx].expiration class variables. Keeping two points of reference allows for rebuilding the calendar if something happens to the public Outlook calendar.
 
 #### Step 4: Equipment Maintenance Sticker Generation
-The last task I am going to highlight from this software development was to find a way to generate a few different types of stickers that could be formatted to fit on a 4"x2" label that could be automatically printed from our networked label printer. Maintenance stickers were historically handwritten by members of QA with varying levels of legibility and accuracy. Since accurate maintenance information is required to be on the instruments per ISO 17025:2017, an incorrect label could jeopardize the laboratory accredation. Automating the label creation would eliminate any human-error.
-<img src="images/sticker.png" height="150" width="295">
+The last task I am going to highlight from this software development was to find a way to generate a few different types of stickers that could be formatted to fit on a 4"x2" label that could be automatically printed from our networked label printer. Maintenance stickers were historically handwritten by members of QA with varying levels of legibility and accuracy. Since accurate maintenance information is required to be on the instruments per ISO 17025:2017, an incorrect label could jeopardize the laboratory accredation. Automating the label creation would eliminate any human-error. Using the pypi module [ReportLab](https://pypi.org/project/reportlab/), the program generats a pdf sticker.
 
-coming soon...
+<img src="images/sticker.png" height="150" width="295" alt="Example of a Python Generated Maintenance Sticker">
+
+A class named Sticker is used to generate the stickers dynamically. The arguments required to create a Sticker object are the Equipment class object and a filename, which was normally left to its default filename.
+
+```python
+class Sticker:
+    def __init__(self, obj, filename='temp.pdf'):
+        self.height = 144
+        self.width = 288
+        self.offset = 10
+        self.obj = obj
+        self.font = 'Helvetica'
+        self.filename = filename
+        
+        # run class functions functions
+        self.extract()
+        self.outline()
+        self.labels()
+        self.fill_info()
+        self.c.save()
+```
+Several class functions are called to format the sticker. First, self.extract() reads the data stored in self.obj, and assigns the values to variables to be added to the sticker:
+```python
+    def extract(self):
+        # Extract needed info from self.obj
+        self.PM = self.obj.history['Annual PM'].number
+        self.PM_date = self.obj.history['Annual PM'].date
+        self.PM_expiration = self.obj.history['Annual PM'].expiration
+        self.biannual_due = self.obj.history['Biannual PM'].expiration
+        self.OQ = self.obj.history['OQ'].number
+        self.OQ_date = self.obj.history['OQ'].date
+        self.OQ_expiration = self.obj.history['OQ'].expiration
+        self.e_number = self.obj.equipment_number
+        self.completed_by = self.obj.history['Annual PM'].analyst
+        self.c = canvas.Canvas(self.filename, pagesize=(self.width,self.height))
+```
+Next, self.outline() draws all of the lines one the sticker. self.labels() draws all of the non-dynamic text that is constant on each sticker.
+```python
+    def outline(self):
+        #Formats the lines on the label
+        self.c.setLineWidth(1)
+        self.c.line(0,int(self.height*0.85),self.width,int(self.height*0.85))
+        self.c.line(0,int(self.height*0.85)-2,self.width//2-1,int(self.height*0.85)-2)
+        self.c.line(self.width//2+1,int(self.height*0.85)-2,self.width,int(self.height*0.85)-2)
+        self.c.line(self.width//2-1,0, self.width//2-1, int(self.height*0.85)-2)
+        self.c.line(self.width//2+1,int(self.height*0.20)+2, self.width//2+1, int(self.height*0.85)-2)
+        self.c.line(self.width//2+1,int(self.height*0.20), self.width, int(self.height*0.20))
+        self.c.line(self.width//2+1,int(self.height*0.20)+2, self.width, int(self.height*0.20)+2)
+        self.c.line(self.width//2+1,0, self.width//2+1, int(self.height*0.20))
+        
+    def labels(self):
+        self.c.setFont(self.font, 20)
+        self.c.drawString(self.offset,self.height-18,'Annual Maintenance')
+        self.c.setFont('Helvetica', 8)
+        self.c.drawString(self.offset,80,'PM Completion Date:')
+        self.c.drawString(self.offset,50,'Annual PM Expiration:')
+        self.c.drawString(self.offset,20,'Biannual PM Due:')
+        self.c.drawString(self.width//2 + self.offset,80,'OQ Completion Date:')
+        self.c.drawString(self.width//2 + self.offset,50,'OQ Expiration:')
+        self.c.drawString(self.width//2 + self.offset,20,'Performed By:')
+```
+
+```python
+    def fill_info(self):
+        self.c.setFont('Helvetica', 30)
+        
+        if self.PM is None:
+            self.PM = 'PM- N/A'
+        self.c.drawString(self.offset,92,self.PM)
+        
+        if self.OQ is None:
+            self.OQ = 'OQ- N/A'
+        self.c.drawString(self.width//2 + self.offset,92,self.OQ)
+        
+        self.c.setFont('Helvetica', 16)
+        self.c.drawString(self.offset,65,self.formatter(self.PM_date))
+        self.c.drawString(self.offset,35,self.formatter(self.PM_expiration))
+        self.c.drawString(self.offset,5,self.formatter(self.biannual_due))
+
+        self.c.drawString(self.width//2 + self.offset,65,self.formatter(self.OQ_date))
+        self.c.drawString(self.width//2 + self.offset,35,self.formatter(self.OQ_expiration))
+        self.c.drawString(self.width//2 + self.offset,5,self.formatter(self.completed_by))
+        
+        if self.e_number is not None:
+            self.c.setFont('Helvetica', 14)
+            self.c.drawString(4*self.width/5,self.height-18,self.e_number)
+        
+            
+    def formatter(self, value):
+        if isinstance(value, datetime.date):
+            return '{:02d}-{}-{}'.format(value.day,calendar.month_abbr[value.month],str(value.year))#[2:])
+        elif isinstance(value,str):
+            if len(value)>16:
+                self.c.setFont('Helvetica', 12)
+            else:
+                self.c.setFont('Helvetica', 16)
+            return value
+        else:
+            return 'N/A'
+```

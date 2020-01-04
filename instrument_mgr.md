@@ -201,6 +201,7 @@ class Sticker:
         self.obj = obj
         self.font = 'Helvetica'
         self.filename = filename
+        self.c = canvas.Canvas(self.filename, pagesize=(self.width,self.height))
         
         # run class functions functions
         self.extract()
@@ -222,7 +223,6 @@ Several class functions are called to format the sticker. First, self.extract() 
         self.OQ_expiration = self.obj.history['OQ'].expiration
         self.e_number = self.obj.equipment_number
         self.completed_by = self.obj.history['Annual PM'].analyst
-        self.c = canvas.Canvas(self.filename, pagesize=(self.width,self.height))
 ```
 Next, self.outline() draws all of the lines one the sticker. self.labels() draws all of the non-dynamic text that is constant on each sticker.
 ```python

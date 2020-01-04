@@ -2,6 +2,6 @@ title: James M. Smillie # your name (or website title) here
 logo: "/images/logo.png" # your photo (or logo) here
 degree: BA, Physics - University of Colorado
 description: > # your text below (remove <br> elements if you don't need line breaks)
-<a href="about">> See Resume</a>
+<a href="about">/> See Resume</a>
   
 theme: jekyll-theme-dinky

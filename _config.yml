@@ -2,12 +2,8 @@ title: James M. Smillie # your name (or website title) here
 logo: "/images/logo.png" # your photo (or logo) here
 degree: BA, Physics ('19) - University of Colorado
 description: > # your text below (remove <br> elements if you don't need line breaks)
-  BA, Physics - University of Colorado
-  <br><br>Strong background in Mathematics. Experience with Python 3, VBA, C++.
+  Strong background in Mathematics. Experience with Python 3, VBA, C++.
   3+ years experience managing ISO:17025 accredited quality systems in an analytical chemistry laboratory and 
   developing internal software. 1.5 years working with a start-up tech company as a software and hardware developer.
-  <br>
-  <a href="https://www.linkedin.com/in/james-s-a03574124">View My LinkedIn Profile</a> 
   
 theme: jekyll-theme-dinky
-google_analytics: UA-000000-0 # your Google Analytics tracking ID here

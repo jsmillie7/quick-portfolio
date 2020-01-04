@@ -285,3 +285,5 @@ Finally, the program will fill in the dynamic information with self.fill_info() 
             return 'N/A'
 ```
 And with the addition of this script, the program has achieved the 4 goals set out for it. The software includes several more features, like the ability to add and delete instruments, place them in or out of service, update instrument information, generate logs of specific equipment (overdue, all HPLCs, every item in a specific lab area, etc.), and many more, but this entry is long enough as it is. 
+
+[return to top](#instrument-maintenance-manager)

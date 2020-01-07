@@ -57,8 +57,8 @@
 
 <p align="center">
   <a href="/laser">
-    <img src="images/brd_top.png.JPG"\>
-    <img src="images/brd_bottom.png.JPG"\>
+    <img src="images/brd_top.png.JPG">
+    <img src="images/brd_bottom.png.JPG">
   </a>
 </p>
 

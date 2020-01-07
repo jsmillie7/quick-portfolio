@@ -58,6 +58,8 @@
 <p align="center">
   <a href="/ATTiny">
     <img src="images/brd_top.png" width=200>
+  </a>
+  <a href="/ATTiny">
     <img src="images/brd_bottom.png" width=200>
   </a>
 </p>

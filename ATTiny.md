@@ -2,17 +2,17 @@
 <img src="images/back.png" alt="Back" height="35" width="35">
 </a>
 
-## ATTiny84/85 Programmer
+# ATTiny84/85 Programmer
 
 ##### Arduino
 ---
-### Background:
+## Background:
 
 ### Schematic:
 
 <img src="images/ATTiny/schematica.png">
 
-#### Bill of Materials
+### Bill of Materials:
 
 Item|Qty
 :-:|:-:

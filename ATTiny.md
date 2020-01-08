@@ -22,11 +22,15 @@ ATTiny84 and ATTiny85 microcontrollers paired with arduino make for extremely us
   <figcaption>ATTiny85 Programming Circuit (<a href="https://create.arduino.cc/projecthub/arjun/programming-attiny85-with-arduino-uno-afb829">Source</a>)</figcaption>
 </figure><br>
 
-Both the ATTiny84, which has 14 pins, and the ATTiny85 with 8 pins, have different wiring diagrams so there is no way to easily program them one after another. As seen in the diagram above, the wiring can getr messy. I found myself programming many of these microcontrollers for various projects and tests and got sick of rewiring everytime I changed something. The inspiration for an ATTiny programming PCB was born. 
+Both the ATTiny84, which has 14 pins, and the ATTiny85 with 8 pins, have different wiring diagrams so there is no way to easily program them one after another. As seen in the diagram above, the wiring can get messy. I found myself programming many of these microcontrollers for various projects and tests and got sick of rewiring everytime I changed something. The inspiration for an ATTiny programming PCB was born. 
 
-### Schematic:
+### Circuit Design
 
-<img src="images/ATTiny/schematica.png">
+Online, there are various programmers available for ATTiny85, fewer for the larger 84 board, and none that worked for both. I like to use both, and didn't want to have multiple programmers. Also, on OSH Park, you pay by the square inch, so keeping the footprint small was a priority. The overall footprint matches the Arduino Nano. A 14-pin DIP connector was added, since both the 14 pin and 8 pin variants could fit in it. I then added a 16:8 MUX/DEMUX that allowed me to switch the arduino inputs, powers and grounds to the correct pins, depending on which chip is selected, by grounding either 84 or 85. A pull-up resistor on each pin keeps the unselected pin high, and the multiplexor off for that input.
+
+#### Schematic:
+
+<img src="images/ATTiny/schematica.png" width="100%">
 
 ### Bill of Materials:
 

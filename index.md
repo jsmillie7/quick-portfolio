@@ -35,7 +35,7 @@
 
 <p align="center">
   <a href="/2d_3d/2d_3d">
-    <img src="images/pyplot.png" title="G-Code Flattener">
+    <img src="2d_3d/laser_optimized.png" title="G-Code Flattener" width="100%">
   </a>
 </p>
 

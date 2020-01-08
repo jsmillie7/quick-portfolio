@@ -5,8 +5,15 @@
 # ATTiny84/85 Programmer
 
 ##### Arduino
+
+<p align="center">
+  <img src="images/attiny_both.png" width="400">
+</p>
+
 ---
 ## Background:
+
+
 
 ### Schematic:
 

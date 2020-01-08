@@ -47,7 +47,7 @@ The final product turned out great. It worked perfectly and has made my life pro
   <img src="images/ATTiny/6.jpg" width="16%">
 </a>
 
-### Bill of Materials:
+#### Bill of Materials:
 
 Code|Item|Qty
 :-:|:-:|:-:

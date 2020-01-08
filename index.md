@@ -7,7 +7,7 @@
 
 <p align="center">
   <a href="/instrument_mgr">
-    <img src="images/InstrumentMaintenance.PNG" title="Instrument Maintenance Manager">
+    <img src="images/InstrumentMaintenance.PNG" title="Instrument Maintenance Manager" width="100%">
   </a>
 </p>
 
@@ -35,7 +35,7 @@
 
 <p align="center">
   <a href="/3d_2d">
-    <img src="images/pyplot.png" title="G-Code Flattener">
+    <img src="images/pyplot.png" title="G-Code Flattener" width="100%">
   </a>
 </p>
 
@@ -47,7 +47,7 @@
 
 <p align="center">
   <a href="/laser">
-    <img src="images/laser.JPG" alt="laser cutter">
+    <img src="images/laser.JPG" alt="laser cutter" width="100%">
   </a>
 </p>
 
@@ -57,7 +57,7 @@
 
 <p align="center">
   <a href="/ATTiny">
-    <img src="images/attiny_both.png" width="400">
+    <img src="images/attiny_both.png"  width="80%">
   </a>
 </p>
 

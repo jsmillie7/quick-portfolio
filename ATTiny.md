@@ -8,9 +8,10 @@
 
 ---
 
-<p align="center">
+<figure align="center">
   <img src="images/attiny_both.png" width="400">
-</p>
+  <figcaption>ATTiny84/85 Programmer Board renders from OSH Park</figcaption>
+</figure>
 
 ## Background:
 

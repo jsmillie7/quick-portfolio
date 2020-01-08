@@ -36,7 +36,7 @@ The circuit was designed in AutoDesk Eagle and sent to OSH Park for fabrication.
 
 #### PCB:
 
-The final product turned out great. It worked perfectly and has made my life programming ATTinys much simpler. I did a bad job of cleaning off the extra flux, so the board has a bit of a crust on it, but I have since learned my lesson. My soldering skills have also improved signiicantly since this was done.
+The final product turned out great. It worked perfectly and has made my life programming ATTinys much simpler. I did a bad job of cleaning off the extra flux, so the board has a bit of a crust on it, but I have since learned my lesson. My soldering skills have also improved significantly since this was done.
 
 <a href="https://imgur.com/a/fdHZ2vQ">
   <img src="images/ATTiny/1.jpg" width="16%">

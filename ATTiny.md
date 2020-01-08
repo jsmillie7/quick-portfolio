@@ -31,8 +31,9 @@ Online, there are various programmers available for ATTiny85, fewer for the larg
 #### Schematic:
 
 The circuit was designed in AutoDesk Eagle and sent to OSH Park for fabrication.
-
-<img src="images/ATTiny/schematica.png" width="100%">
+<figure align="center">
+  <img src="images/ATTiny/schematica.png" width="100%">
+</figure>
 
 #### PCB:
 

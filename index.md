@@ -53,10 +53,10 @@
 
 ---
 
-### [ATTiny Programmer](/ATTiny_Prog)
+### [ATTiny Programmer](/ATTiny)
 
 <p align="center">
-  <a href="/ATTiny_Prog">
+  <a href="/ATTiny">
     <img src="images/attiny_both.png" width="400">
   </a>
 </p>

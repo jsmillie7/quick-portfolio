@@ -1,3 +1,9 @@
+# Bio
+
+My name is James Smillie. I am a Colorado native and alumnus of the University of Colorado Boulder (Physics '19). I have 3+ years experience managing quality systems at an ISO17025:2017 accredited analytical chemistry laboratory. I have 5+ years experience using the Python3 programming language for applications such as data analysis, file parsing, document creation, UX/UI development and database interactions. I have experience with many python modules, such as Numpy, Scipy, Matplotlib and Tkinter. I am familiar with MySQL and Django, and I am very capable of learning new modules quickly. Other computer programs that I am proficient in using include: Microsoft Office (Excel, especially), Wolfram Mathematica, Adobe Illustrator and Acrobat, Autodesk Fusion 360 and EAGLE, and both Windows and Mac operating systems. 
+
+---
+
 # Portfolio
 
 ---

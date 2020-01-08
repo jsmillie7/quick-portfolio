@@ -31,10 +31,10 @@
 </p>
 
 ---
-### [3D to 2D G-code Optimizer](/3d_2d.md)
+### [3D to 2D G-code Optimizer](/2d_3d/2d_3d)
 
 <p align="center">
-  <a href="/3d_2d">
+  <a href="/2d_3d/2d_3d">
     <img src="images/pyplot.png" title="G-Code Flattener">
   </a>
 </p>

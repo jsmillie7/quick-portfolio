@@ -14,18 +14,23 @@ Management and ISO regulations required that the QA department enter and verify 
 
 The new lab software assigned a number to each batch in the following format: ASSAY_TYPE-DATE-NUMBER. The solution for QA to manage these non-sequential records was to assign each record a new "BR number." In order to efficiently and accurately log these, a user interface was developed which allowed one to quickly choose an assay type, date, and number from drop-down menus, and save it to the Excel log with as few clicks as possible.
 
-<img src="images/BR1.PNG">
+<p align="center">
+    <img src="images/BR1.PNG">
+</p>
 
 #### Search Tab:
 The search tab provided a quick way to search by either BR number or Batch Record ID. This was used to reference the folder's position in the filing area, so it could be quickly found. The program contained a local python dictionary of all of the records within the log. When typing into the search box, the program live-filters results that match the query, and populates the results box.
 
-<img src="images/BR2.PNG">
-
+<p align="center">
+    <img src="images/BR2.PNG">
+</p>
 
 #### Labels Tab:
 The labels tab allows the user to generate sequential BR number labels to affix to the folder after the number is assigned to it. The program uses [python-docx](https://python-docx.readthedocs.io/en/latest/) to create a word doc formatted to Avery 8167 labels. If python-docx is not installed, the UI directs the user on how to install the PyPi module.
 
-<img src="images/BR3.PNG">
+<p align="center">
+    <img src="images/BR3.PNG">
+</p>
 
 ---
 
@@ -476,5 +481,3 @@ root.geometry("+{}+{}".format((root.winfo_screenwidth() - 350)//2,
                               (root.winfo_screenheight() - 300)//2))
 mainloop()
 ```
-
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/fdHZ2vQ"\><a href="//imgur.com/a/fdHZ2vQ"\>ATTiny84/85 programmer board</a\></blockquote\><script async src="//s.imgur.com/min/embed.js" charset="utf-8"\></script\>

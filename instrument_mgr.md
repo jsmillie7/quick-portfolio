@@ -6,7 +6,9 @@
 
 ##### for Windows
 
-<img src="images/InstrumentMaintenance.PNG" width="95%">
+<p align="center">
+    <img src="images/InstrumentMaintenance.PNG" width="95%">
+</p>
 
 ---
 ### Background:

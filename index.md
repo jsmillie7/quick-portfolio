@@ -57,7 +57,7 @@
 
 <p align="center">
   <a href="/ATTiny">
-    <img src="images/attiny_both.png"  width="80%">
+    <img src="images/attiny_both.png"  width="60%">
   </a>
 </p>
 

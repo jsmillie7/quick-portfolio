@@ -39,14 +39,16 @@ The circuit was designed in AutoDesk Eagle and sent to OSH Park for fabrication.
 
 The final product turned out great. It worked perfectly and has made my life programming ATTinys much simpler. I did a bad job of cleaning off the extra flux, so the board has a bit of a crust on it, but I have since learned my lesson. My soldering skills have also improved significantly since this was done.
 
-<a href="https://imgur.com/a/fdHZ2vQ">
-  <img src="images/ATTiny/1.jpg" width="15%">
-  <img src="images/ATTiny/2.jpg" width="15%">
-  <img src="images/ATTiny/3.jpg" width="15%">
-  <img src="images/ATTiny/4.jpg" width="15%">
-  <img src="images/ATTiny/5.jpg" width="15%">
-  <img src="images/ATTiny/6.jpg" width="15%">
-</a>
+<figure align="center">
+  <a href="https://imgur.com/a/fdHZ2vQ">
+    <img src="images/ATTiny/1.jpg" width="15%">
+    <img src="images/ATTiny/2.jpg" width="15%">
+    <img src="images/ATTiny/3.jpg" width="15%">
+    <img src="images/ATTiny/4.jpg" width="15%">
+    <img src="images/ATTiny/5.jpg" width="15%">
+    <img src="images/ATTiny/6.jpg" width="15%">
+  </a>
+</figure>
 
 #### Bill of Materials:
 

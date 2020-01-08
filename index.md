@@ -26,7 +26,7 @@
 
 <p align="center">
   <a href="/data_encryption">
-    <img src="images/encrypter1.png" title="SHA-256 Data Encryption Tool">
+    <img src="images/encrypter1.png" title="SHA-256 Data Encryption Tool" width="60%">
   </a>
 </p>
 
@@ -35,7 +35,7 @@
 
 <p align="center">
   <a href="/3d_2d">
-    <img src="images/pyplot.png" title="G-Code Flattener" width="100%">
+    <img src="images/pyplot.png" title="G-Code Flattener">
   </a>
 </p>
 

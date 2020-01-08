@@ -36,12 +36,12 @@ The circuit was designed in AutoDesk Eagle and sent to OSH Park for fabrication.
 
 #### PCB:
 <a href="https://imgur.com/a/fdHZ2vQ">
-  <img src="images/ATTiny/1.jpg" width="16.6%">
-  <img src="images/ATTiny/2.jpg" width="16.6%">
-  <img src="images/ATTiny/3.jpg" width="16.6%">
-  <img src="images/ATTiny/4.jpg" width="16.6%">
-  <img src="images/ATTiny/5.jpg" width="16.6%">
-  <img src="images/ATTiny/6.jpg" width="16.6%">
+  <img src="images/ATTiny/1.jpg" width="16.5%">
+  <img src="images/ATTiny/2.jpg" width="16.5%">
+  <img src="images/ATTiny/3.jpg" width="16.5%">
+  <img src="images/ATTiny/4.jpg" width="16.5%">
+  <img src="images/ATTiny/5.jpg" width="16.5%">
+  <img src="images/ATTiny/6.jpg" width="16.5%">
 </a>
 
 ### Bill of Materials:

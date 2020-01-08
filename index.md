@@ -12,6 +12,15 @@
 </p>
 
 ---
+### [3D to 2D G-code Optimizer](/2d_3d/2d_3d)
+
+<p align="center">
+  <a href="/2d_3d/2d_3d">
+    <img src="2d_3d/laser_optimized.png" title="G-Code Flattener" width="100%">
+  </a>
+</p>
+
+---
 
 ### [Batch Record Management Tool](/BR_mgr)
 
@@ -27,15 +36,6 @@
 <p align="center">
   <a href="/data_encryption">
     <img src="images/encrypter1.png" title="SHA-256 Data Encryption Tool" width="50%">
-  </a>
-</p>
-
----
-### [3D to 2D G-code Optimizer](/2d_3d/2d_3d)
-
-<p align="center">
-  <a href="/2d_3d/2d_3d">
-    <img src="2d_3d/laser_optimized.png" title="G-Code Flattener" width="100%">
   </a>
 </p>
 

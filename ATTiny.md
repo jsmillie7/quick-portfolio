@@ -10,7 +10,7 @@
 
 ### Schematic:
 
-<img src="images/ATTiny/schematic.png">
+<img src="images/ATTiny/schematica.png">
 
 #### Bill of Materials
 

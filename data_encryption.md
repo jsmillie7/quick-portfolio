@@ -11,12 +11,16 @@ This project was developed for a start-up to encrypt sensitive proprietary files
 #### Log-in screen 
 that doesn't allow any file encryption/decryption until correct password is entered
 
-<img src="images/encrypter1.png"/>
+<p align="center">
+    <img src="images/encrypter1.png"/>
+</p>
 
 #### Encrypt/Decrypt screen
 which opens a file browser and sends the chosen file through the selected process.
 
-<img src="images/encrypter2.png"/>
+<p align="center">
+    <img src="images/encrypter2.png"/>
+</p>
 
 #### Future Imporvements
 In the future, improvements could be made, such as:

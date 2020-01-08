@@ -12,7 +12,7 @@
 </p>
 
 ---
-### [3D to 2D G-code Optimizer](/2d_3d/2d_3d)
+### [3D-2D G-Code Optimizer](/2d_3d/2d_3d)
 
 <p align="center">
   <a href="/2d_3d/2d_3d">

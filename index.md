@@ -17,7 +17,7 @@
 
 <p align="center">
   <a href="/BR_mgr">
-    <img src="images/BR1.PNG" title="Batch Record Management Tool">
+    <img src="images/BR1.PNG" title="Batch Record Management Tool" width="50%">
   </a>
 </p>
 
@@ -26,7 +26,7 @@
 
 <p align="center">
   <a href="/data_encryption">
-    <img src="images/encrypter1.png" title="SHA-256 Data Encryption Tool" width="60%">
+    <img src="images/encrypter1.png" title="SHA-256 Data Encryption Tool" width="50%">
   </a>
 </p>
 

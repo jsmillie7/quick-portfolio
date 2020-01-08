@@ -26,11 +26,23 @@ Both the ATTiny84, which has 14 pins, and the ATTiny85 with 8 pins, have differe
 
 ### Circuit Design
 
-Online, there are various programmers available for ATTiny85, fewer for the larger 84 board, and none that worked for both. I like to use both, and didn't want to have multiple programmers. Also, on OSH Park, you pay by the square inch, so keeping the footprint small was a priority. The overall footprint matches the Arduino Nano. A 14-pin DIP connector was added, since both the 14 pin and 8 pin variants could fit in it. I then added a 16:8 MUX/DEMUX that allowed me to switch the arduino inputs, powers and grounds to the correct pins, depending on which chip is selected, by grounding either 84 or 85. A pull-up resistor on each pin keeps the unselected pin high, and the multiplexor off for that input.
+Online, there are various programmers available for ATTiny85, fewer for the larger 84 board, and none that worked for both. I like to use both, and didn't want to have multiple programmers. Also, on OSH Park, you pay by the square inch, so keeping the footprint small was a priority. The overall footprint matches the Arduino Nano. A 14-pin DIP connector was added, since both the 14 pin and 8 pin variants could fit in it. I then added a 16:8 MUX/DEMUX that allowed me to switch the arduino inputs, powers and grounds to the correct pins, depending on which chip is selected, by grounding either 84 or 85. A pull-up resistor on each pin keeps the unselected pin high, and the multiplexor off for that input. An LED was added to allow for a blink program to verify programming.
 
 #### Schematic:
 
+The circuit was designed in AutoDesk Eagle and sent to OSH Park for fabrication.
+
 <img src="images/ATTiny/schematica.png" width="100%">
+
+#### PCB:
+
+<img src="images/ATTiny/1.jpg" width="15%">
+<img src="images/ATTiny/2.jpg" width="15%">
+<img src="images/ATTiny/3.jpg" width="15%">
+<img src="images/ATTiny/4.jpg" width="15%">
+<img src="images/ATTiny/5.jpg" width="15%">
+<img src="images/ATTiny/6.jpg" width="15%">
+
 
 ### Bill of Materials:
 

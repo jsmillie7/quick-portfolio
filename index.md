@@ -70,7 +70,4 @@ My name is James Smillie. I am a Colorado native and alumnus of the University o
 
 ---
 
-### [Virtual Reality Glove](#)
-
----
 

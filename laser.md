@@ -35,7 +35,7 @@ The laser housing is a block of 1.25"x4" milled aluminum which acts as a heatsin
 #### Controller Board
 
 <p align="center">
-  <img src="images/controller.png" width="100%">
+  <img src="images/controller.png" width="70%">
 </p>
 
 #### Future Updates

@@ -38,6 +38,13 @@ The laser housing is a block of 1.25"x4" milled aluminum which acts as a heatsin
   <img src="images/controller.png" width="70%">
 </p>
 
+<p align="center">
+  <img src="images/new_top.png" width="70%">
+</p>
+<p align="center">
+  <img src="images/new_bottom.png" width="70%">
+</p>
+
 #### Future Updates
 
 * New custom ESP32 based controller board

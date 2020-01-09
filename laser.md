@@ -38,15 +38,17 @@ The laser housing is a block of 1.25"x4" milled aluminum which acts as a heatsin
   <img src="images/controller.png" width="70%">
 </p>
 
-<p align="center">
-  <img src="images/new_top.png" width="70%">
-</p>
-<p align="center">
-  <img src="images/new_bottom.png" width="70%">
-</p>
+
 
 #### Future Updates
 
 * New custom ESP32 based controller board
+> I have designed a new board that integrates most of the components onto a single PCB to eliminate noise, remove messy wires and reduce the overall footprint of the controller. It utilizes an ESP32-WROOM module as the microcontroller and bluetooth module in one, JST plugs for all of the I/O to clean up the wires, and has an option to use a microSD card to run a program without needing a computer connected for long cuts. Version 1 of the board is shown below.
+<p align="center">
+  <img src="images/new_top.png" width="70%">
+  <br>
+  <img src="images/new_bottom.png" width="70%">
+</p>
+
 * Motor controlled focus (autofocus using ToF sensor?)
 * Replace cheap linear rails with more robust V-Slot 

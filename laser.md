@@ -51,4 +51,7 @@ The controller was admittedly hodge-podged together as a learning process. Prior
 </p>
 
 * Motor controlled focus (autofocus using ToF sensor?)
+> The lens on the laser has a very tight focal point. This means that materials with different thicknesses require a manual adjustment of the lens. There is some play in the threading on the lens, so adjusting the focus also moves the laser dot location, which affects repeatability. Adding a small z axis that allows the laser to move its focus up and down is ideal. Recently, I have been looking into using a time of flight sensor to autimatically adjust the laser height based on the material inside of it.
+
 * Replace cheap linear rails with more robust V-Slot 
+> V-Slot provides affordable, rigid structure that is excellent for small CNC machines. It is modular and would allow for making the workable area larger. Eventually, the entire laser cutter may be redesigned around this technology. 

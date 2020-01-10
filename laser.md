@@ -34,7 +34,7 @@ The laser housing is a block of 1.25"x4" milled aluminum which acts as a heatsin
 
 #### Controller Board
 
-The controller was admittedly hodge-podged together as a learning process. Prior to starting this project, I had 1 semester of electronics experience in college and not much else. Using the internet as a guide alongside trial and error, I eventually simplified the circuit to what is pictured below:
+The controller was admittedly hodge-podged together as a learning process. Prior to starting this project in early 2015, I had 1 semester of electronics experience in college and not much else. Using the internet as a guide alongside trial and error, I eventually simplified the circuit to what is pictured below:
 <p align="center">
   <img src="images/controller.png" width="70%">
 </p>

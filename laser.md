@@ -34,11 +34,11 @@ The laser housing is a block of 1.25"x4" milled aluminum which acts as a heatsin
 
 #### Controller Board
 
+The controller was admittedly hodge-podged together as a learning process. Prior to starting this project, I had 1 semester of electronics experience in college and not much else. Using the internet as a guide alongside trial and error, I eventually simplified the circuit to what is pictured below:
 <p align="center">
   <img src="images/controller.png" width="70%">
 </p>
-
-
+3 buck converters are used to step down the 24V power supply to the various power levels needed for the arduino uno, cooling fan and laser driver. Low pass filters were added just before the arduino on the limit switch inputs to eliminate noise caused by the stepper motors in shared cables. In the same module as the low pass filters, I added an input for an HC-06 bluetooth module to control the laser wirelessly. The Arduino Uno is the microcontroller of choice for this setup, since they are cheap and readily available. On top of the Uno sits a [CNC Shield V3](https://www.reprap.me/arduino-cnc-shield.html) which works with a customized version of GRBL v1.1f. This board is separate from the laser, and is connected via 2 ethernet cables and a 9V DC male-to-male cable.
 
 #### Future Updates
 

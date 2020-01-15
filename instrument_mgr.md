@@ -23,7 +23,7 @@ This program is one of the most complex pieces of software that I have individua
 ### Development:
 
 #### Step 1: Data Structure:
-The first step was to create an easily-indexable dictionary of the instruments within the laboratory. Each instrument was created as a new instance of a class called "Equipment", which allowed the user to create an object with individual attributes for each HPLC, balance, and all of the other various equipment types.
+The first step was to create an easily-indexable dictionary of the instruments within the laboratory. Each instrument was created as a new instance of a class called "Equipment", which allowed the user to create an object with individual attributes for each HPLC, balance, and all of the other various equipment types. __Python3.7 introduced data classes, which would be an ideal substitute for the Equipment class created below.__
 
 ```python
 class Equipment:

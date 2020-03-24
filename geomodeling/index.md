@@ -150,12 +150,20 @@ Now we have access to all of the data in the GeoTiff file. The entire class can 
 
 #### A Mountain sized task
 
-Creating an elevation profile inside of a polygon, while excluding all data outside of it was one of the trickier parts of this entire project. How can you tell what is inside an arbitrary polygon, and what isn't, based on its coordinates? I had to develop an algorithm to check each matrix element and see if it was inside or outside of the polygon. The principle  behind the method turned out to be fairly elementary: how many lines of the polygon does the point cross if you draw a line from it to an arbitrary reference point outside of the data set?
+Creating an elevation profile inside of a polygon, while excluding all data outside of it was one of the trickier parts of this entire project. How can you tell what is inside an arbitrary polygon, and what isn't, based on its coordinates? I had to develop an algorithm to check each matrix element and see if it was inside or outside of the polygon. First, only data that fell between the maximum and minimum coordinates was considered. The principle behind the method turned out to be fairly elementary: how many lines of the polygon does the point cross if you draw a line from it to an arbitrary reference point outside of the data set?
 
 <p align="center">
   <img src="images/principle.png" width="80%">
 </p>
-As you can see, points outside of the polygon will cross an __even__ number of lines (including 0), and points inside of the polygon will cross an __odd__ number of times. Visualizing this is easy, but how do you calculate it?
+
+As you can see, points outside of the polygon will cross an __even__ number of lines (including 0), and points inside of the polygon will cross an __odd__ number of times. Visualizing this is easy, but how do you calculate it? Since these are both lines, basic linear equations in the form of Y = mx+b can be calculated for them. Now that we have the equations (the slope _m_ and offset _b_) for both line segments, we can calculate where they intersect by the following logic:
+1. The x value of the intersection point can be calculated using the equation: _x = (line2.b - line1.b) / (line1.m - line2.m)_.
+  - If they are parallel (line1.m == line2.m), we'll get a DivideByZero error, and we know it doesnt cross (return 0). 
+2. The y value can then be calculated by plugging the x value back into y = (line1.m) * x + (line1.b). 
+3. Now we have the (x,y) value where the lines cross each other. Check if it is between both endpoints of the line segments.
+  - If it is, the lines cross (return 1).
+  - If it is not, the lines don't cross (return 0).
+4. Summing the values returned for each line segment of the polygon, we can determine whether there is an odd or even number of crossings, which tells up where the point is located!
 
 ---
 

@@ -299,6 +299,20 @@ Now we have a matrix representing the elevation data of the model. This still do
 
 #### Vectorizing the data
 
+The next step is to make the recently acquired data scaleable. The first hurdle in vectorizing the data involves realizing that both the distance between 1 degree of longitude varies significantly based on latitude. Since Earth is an oblate spheroid, latitude also varies, but by a much less significant amount, so I will treat Δlatitude as a constant. To calculate Δlongitude (the distance of 1 degree of longitude in m), I use the following definition:
+
+```python
+def lon_dist(lat):
+    ### This assumes that latitude is constant over the entire 
+    ### Earth (its not, but varying by 1km wont change a scale by much).
+    ### Meters per degree of longitude is calculated by finding the cosine 
+    ### of the latitude angle and multiplying it by equitorial longitude 
+    ### distance, which is equal to latitude distance.
+
+    lat_dist = 111319.9
+    lon_dist = lat_dist * np.cos(np.radians(lat))
+    return lon_dist
+```
 
 ---
 ### Results

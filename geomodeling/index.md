@@ -36,7 +36,7 @@ A KMZ file is a special zipped XML file that contains all of the data surroundin
 The US Geological Survey is an excellent resource for free Earth-relevant data. Using [EarthExplorer](https://earthexplorer.usgs.gov), I navigated to Mt. Werner data sets, chose the Digital Elevation branch, chose SRTM 1 Arc-Second Global data, and downloaded the result as a [GeoTIFF file](files/n40_w107_1arc_v3.tif).
 
 <p align="center">
-  <img src="images/USGS.png" width="100%">
+  <img src="images/usgs.png" width="100%">
 </p>
 
 #### Python G-Code Parsing

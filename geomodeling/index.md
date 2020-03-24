@@ -163,13 +163,63 @@ As you can see, points outside of the polygon will cross an __even__ number of l
 </p>
 
 
-1. The x value of the intersection point can be calculated using the equation: _x = (line2.b - line1.b) / (line1.m - line2.m)_.
-  1. If they are parallel (line1.m == line2.m), we'll get a DivideByZero error, and we know it doesnt cross (return 0). 
-2. The y value can then be calculated by plugging the x value back into y = (line1.m) * x + (line1.b). 
-3. Now we have the (x,y) value where the lines cross each other. Check if it is between both endpoints of the line segments.
-  1. If it is, the lines cross (return 1).
-  2. If it is not, the lines don't cross (return 0).
-4. Summing the values returned for each line segment of the polygon, we can determine whether there is an odd or even number of crossings, which tells up where the point is located!
+By summing the values returned for all segments in the polygon, we can tell if a point is inside or outside of the polygon. If it is inside the polygon, we add its elevation to the matrix, otherwise, we leave it as None to ignore the point. 
+
+The linear equation calculation looks like this:
+
+```python
+def get_linear_equation(self, pt1, pt2):
+    ### Calculate the slope and offset of linear equation that 
+    ### connects two points of the form y = mx + b
+
+    ### Slope (m):
+    m = (pt2.lon - pt1.lon) / (pt2.lat - pt1.lat)
+
+    ### Offset (b):
+    b = pt2.lon - m*pt2.lat
+
+    ### linEQ is a namedtuple to easily reference the slope or offset
+    return linEQ(m=m, b=b)
+```
+
+and the intersection is determined by:
+
+```python
+def intersection(self, pt1, pt2, pt3, pt4=None):
+    ### pt1 is the starting point for the leg of polygon being checked
+    ### pt2 is the ending point for the leg of the polygon being checked
+    ### pt3 is the coordinate being checked
+    ### pt4 the outside reference point. It will default to a point NE 
+    ###     of the polygon. Set your own where ever you'd like. 
+
+    if pt4 is None:
+        pt4 = coord(
+              lat=max([i.lat for i in self.polygon])+1,
+              lon=max([i.lon for i in self.polygon])+1
+              )
+
+    line1 = self.get_linear_equation(pt1,pt2)
+    line2 = self.get_linear_equation(pt3,pt4)
+
+    try:
+        x = (line2.b - line1.b) / (line1.m - line2.m)
+        y = line2.m * x +line2.b
+
+    except ZeroDivisionError: 
+        ### If lines are parallel, a divide by zero error will occur
+        return 0
+
+    ### If the point (x,y) is between the endpoints for BOTH of the 
+    ### line segments, they cross. Otherwise, they do not.
+    if all([
+        min([pt1.lat, pt2.lat]) <= x <= max([pt1.lat, pt2.lat]),
+        min([pt3.lat, pt4.lat]) <= x <= max([pt3.lat, pt4.lat]), 
+        min([pt1.lon, pt2.lon]) <= y <= max([pt1.lon, pt2.lon]), 
+        min([pt3.lon, pt4.lon]) <= y <= max([pt3.lon, pt4.lon])
+    ]):
+        return 1
+    return 0
+```
 
 ---
 

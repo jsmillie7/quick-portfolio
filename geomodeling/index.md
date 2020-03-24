@@ -44,6 +44,8 @@ The US Geological Survey is an excellent resource for free Earth-relevant data. 
   <img src="images/usgs.png" width="100%">
 </p>
 
+[\[top\]](#Modeling-the-Earth)
+
 ---
 
 ### Data Processing:
@@ -266,6 +268,11 @@ def get_elevation_array(self):
             display(f'Creating elevation array: {complete}% Completed')
         last = complete
 ```
+
+[\[top\]](#Modeling-the-Earth)
+
+---
+
 ### Making the data usable
 
 Now we have a matrix representing the elevation data of the model. This still doesnt really help laser cut a 3d model, since we will have to cut several layers and stack them on top of each other. In order to create layers, we need to make contour lines at discrete intevals in the data. Nicely, the python module Matplotlib automatically does this when you make a contour plot, so the hard part of this is already done! Accessing the contour lines created when a plot is created, we now have a model of the elevation data at dicrete intervals! 

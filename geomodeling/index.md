@@ -17,7 +17,7 @@ Growing up in Colorado, the mountains are a way of life. I spent many of my form
 
 ---
 
-### Process:
+### Resource Acquisition:
 
 #### Outlining the Area
 
@@ -27,11 +27,8 @@ The first step was to get a polygon of the coordinates of the desired area. The 
   <img src="images/path.png" width="100%">
 </p>
 
-#### Parsing the KMZ file
 
-A KMZ file is a special zipped XML file that contains all of the data surrounding the path, and most importantly for this project, a list of coordinates for each corner of the outlined polygon. [This](http://programmingadvent.blogspot.com/2013/06/kmzkml-file-parsing-with-python.html) source was a big help in figuring out how to get the coordinate data out of the KMZ file. I used the PlacemarkHandler class from this source verbatin, since the tedious work was already done. 
-
-#### Getting the Elevation Data
+#### Acquiring the Elevation Data
 
 The US Geological Survey is an excellent resource for free Earth-relevant data. Using [EarthExplorer](https://earthexplorer.usgs.gov), I navigated to Mt. Werner data sets, chose the Digital Elevation branch, chose SRTM 1 Arc-Second Global data, and downloaded the result as a [GeoTIFF file](files/n40_w107_1arc_v3.tif).
 
@@ -39,164 +36,65 @@ The US Geological Survey is an excellent resource for free Earth-relevant data. 
   <img src="images/usgs.png" width="100%">
 </p>
 
-#### Python G-Code Parsing
+---
 
-Now, I had the files that I needed to create my 3D layered sphere. Ignoring the Z-Axis, since my laser cutter is only 2-axis, the resulting [g-code file](sphere.gcode) is a series of concentric circles around the middle of the cutting plate.
+### Data Processing:
 
-<p align="center">
-  <img src="unmodified.png" width="100%">
-</p>
+#### Parsing the KMZ file
 
-In order to parse the g-code file, I create a class called unSlicer2D which opens the recently sliced Cura g-code file. It immediately performs a few string operations to remove unneeded data from the original file.
+A KMZ file is a special zipped XML file that contains all of the data surrounding the path, and most importantly for this project, a list of coordinates for each corner of the outlined polygon. [This](http://programmingadvent.blogspot.com/2013/06/kmzkml-file-parsing-with-python.html) source was a big help in figuring out how to get the coordinate data out of the KMZ file. I used the PlacemarkHandler class from this source verbatin, since the tedious work was already done. I created another class called KMZ to wrap all of the actions surrounding the KMZ data into one easy to use package:
+
 
 ```python
-class unSlicer2D:
-    def __init__(self, file):
-        '''
-        the x and y argument are the size of the laser bed in mm
-        the buffer is the relative distance between each layer, treated as a rectange of size (x max - min) by (y max - min)
-        this will not optimize the size needed to cut all layers, but will lay them all out into a cuttable configuration. 
-        '''
+class KMZ:
+    def __init__(self, kmz_file):
+        self.file = kmz_file
+
+        with ZipFile(self.file, 'r') as kmz:
+            self.kml = kmz.open('doc.kml', 'r')
+            parser = xml.sax.make_parser()
+            self.handler = PlacemarkHandler()
+            parser.setContentHandler(self.handler)
+            parser.parse(self.kml)
         
-        with open(file) as c:
-            self.code = c.readlines()
-        self.file = file
-        self.code = [i.split(' E0')[0].split(' Z')[0] for i in self.code] # remove unneeded info
-        self.num = [int(i.split(':')[-1].strip('\n')) for i in self.code if ";LAYER_COUNT:" in i][0]
-        self.ranges = [self.code.index(';LAYER:{}\n'.format(i)) for i in range(self.num)]
-        self.ranges.append(-1)
-        self.layers = {i:Layer(self.code[self.ranges[i]:self.ranges[i+1]]) for i in range(self.num)} # Split the layers into separate instances
-        self.pages = 1
-```
-During the initial parsing of the g-code file, each layer is separated into a new class object called Layer. This allows the program to make sure that each physical shape from the sliced object is kept together, and moved all together. maX and miX are max and min X values within the layer, respectively. Same for maY and miY in the Y direction.
-```python
-class Layer:
-    def __init__(self, gcode):
-        self.gcode = gcode
-        self.lines = {num : Code(line) for num,line in enumerate(self.gcode)}
-        self.page = 0
-        self()
+        # build geofence coordinates
+        self.get_coords()
         
-    def __call__(self):
-        self.maX = max([x.X for x in self.lines.values() if x.X is not None])
-        self.miX = min([x.X for x in self.lines.values() if x.X is not None])
-        self.maY = max([y.Y for y in self.lines.values() if y.Y is not None])
-        self.miY = min([y.Y for y in self.lines.values() if y.Y is not None])
-```
-Within the Layer setup, another class object called Code is created for each individual g-code line within each layer in order to keep the code processing as organized and clean as possible. Each line of code in the original g-code file is added as a Code object to the Layer object that it is assigned to. It saves the key values of a g-code line: the G, F, X and Y values. 
-```python
-class Code:
-    def __init__(self, gcode):
-        self.gcode = gcode
-        self.G = None
-        self.F = None
-        self.X = None
-        self.Y = None
-        self.splitter()
+        ### The name of the GeoTIFF file that include the desired area:
+        self.filename = self.get_filename()
+            
+    def get_coords(self):
+        ### This function builds the geofence polygon from the KMZ file data
+        self.fence = [coord(lat=float(coordinate.split(',')[1]), lon=float(coordinate.split(',')[0])) \
+                      for coordinate in self.handler.mapping[list(self.handler.mapping)[0]] \
+                      ['coordinates'].split()]
         
-    def splitter(self):
-        if ';' in self.gcode: # this is a comment line and can be ignored
-            return
-        c1 = self.gcode.split(' ')
-        g = [i for i in c1 if 'G' in i]
-        f = [float(i.strip('F')) for i in c1 if 'F' in i]
-        x = [float(i.strip('X')) for i in c1 if 'X' in i]
-        y = [float(i.strip('Y')) for i in c1 if 'Y' in i]
+        ### Prevent the closed loop divide by zero error
+        if self.fence[0] == self.fence[-1]:
+            del self.fence[-1]
+            
+    def get_filename(self):
+        ### This function will find the name of the GeoTIFF file that contains the required data
+        ### using the file naming convention that the USGS defaults to
+        ### i.e. 'n40_w107_1arc_v3.tif'
+        ### This only works in Northern and Western hemispheres
         
-        if len(g) > 0:
-            self.G = g[0]
-        if len(f) > 0:
-            self.F = f[0]
-        if len(x) > 0:
-            self.X = x[0]
-        if len(y) > 0:
-            self.Y = y[0]
+        fname = f'n{math.floor(self.fence[0].lat)}_w{abs(math.floor(self.fence[0].lon))}_1arc_v3.tif'
+        if path.exists(fname):
+            return fname
+        else:
+            print(f'File not found. Download {fname} from USGS EarthExplorer!')
+            return None
+        
+    def plot_fence(self):
+        ### A quick function to plot the geofence coordinates
+        ### Mostly for debugging
+        
+        plt.plot([i.lon for i in self.fence], [i.lat for i in self.fence])
+        plt.show()
 ```
 
-#### G-Code Optimization
 
-Now that python had a model of the g-code data that was usable, the next step was to optimize the shapes to make as many fit onto the cutting plate without overlap as possible. A function was added to the unSlicer2D class called Optimize(). This function moves all of the shapes by layer to a new position away from the origin in the bottom left corner using the shifter() class function. The arguments max_x and max_y are the size of the material that is being cut, in mm. It defaults to 304mm because the laser is 12"x12". The buffer argument is the amount of space left between shapes and from the edge of the material. 
-
-```python
-    def shifter(self, layer, dx=0, dy=0):
-        for line in layer.lines.values():
-            try:
-                line.X += dx
-                line.Y += dy
-            except:
-                pass
-            layer()
-
-    def Optimize(self, max_x=304, max_y=304, buffer=0):
-        # step 1: move all layers to the origin
-        for num in range(self.num):
-            self.shifter(self.layers[num],dx=-self.layers[num].miX, dy=-self.layers[num].miY)                
-        # step 2: move one by one to fit grid         
-        # move 0th layer first
-        self.shifter(self.layers[0],dx=buffer, dy=buffer)        
-        x = self.layers[0].maX+buffer
-        y = buffer
-        my = self.layers[0].maY
-        page = 0 # if there are more things than fit on one page        
-        for num in range(1,self.num):            
-            if x + self.layers[num].maX + buffer >= max_x:
-                x = buffer
-                y = my + buffer
-                my = 0                
-            else:
-                x = self.layers[num-1].maX+buffer            
-            if y + self.layers[num].maY + buffer >= max_y:
-                page += 1
-                y = buffer
-                x = buffer                  
-            self.shifter(self.layers[num],dx=x, dy=y)            
-            self.layers[num].page = page        
-            x = self.layers[num].maX+buffer            
-            if self.layers[num].maY > my:
-                my = self.layers[num].maY  
-        self.pages = page + 1
-```
-The resulting optimization is oddly satisfying:
-
-<p align="center">
-  <img src="laser_optimized.png" width="100%">
-</p>
-
-#### Exporting Optimized G-Code
-
-With the hard parts done, all that was left was to render a new g-code file for the optimized version. A simple for loop made the file quickly and efficiently from a new function within unSlicer2d called Generate(). This operation generated [this optimized g-code file](0_laser_sphere.gcode).
-
-```python
-def Generate(self, file='test.gcode', passes=1, F=1000, S=1000):
-        for pg in range(self.pages):
-            f = open('{}_{}'.format(pg,file),'w')
-
-            f.write('; Mount Zirkel Design G-Code Generator\n')
-            f.write('; {}\n'.format(file))
-            f.write('; file {} of {}\n\n'.format(pg+1, self.pages))
-            f.write('S{}M3M8F{}\n'.format(S,F))
-            f.write('\n')
-            for p in range(passes):
-                for layer in self.layers.values():
-                    if layer.page == pg:
-                        for line in layer.lines.values():
-                            flag = False
-                            if line.G is not None:
-                                f.write(f'{line.G} ')
-                                flag = True
-                            if line.X is not None:
-                                f.write(f'X{line.X} ')
-                                flag = True
-                            if line.Y is not None:
-                                f.write(f'Y{line.Y}')
-                                flag = True
-                            if flag:
-                                f.write('\n')
-            f.write('\n; shut down laser, turn off fans\n')
-            f.write('S0M5M9\n')
-            f.write('; end of file')
-            f.close()
-```
 
 ---
 

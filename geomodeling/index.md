@@ -55,7 +55,7 @@ linEQ = namedtuple('linEQ','m b')
 You will see both of these data structures referenced throughout the code.
 
 #### Parsing the KMZ file
-##### Class: KMZ
+###### Class: KMZ
 
 A KMZ file is a special zipped XML file that contains all of the data surrounding the path, and most importantly for this project, a list of coordinates for each corner of the outlined polygon. [This](http://programmingadvent.blogspot.com/2013/06/kmzkml-file-parsing-with-python.html) source was a big help in figuring out how to get the coordinate data out of the KMZ file. I used the PlacemarkHandler class from this source verbatin, since the tedious work was already done. I created another class called KMZ to wrap all of the actions surrounding the KMZ data into one easy to use package. After the KMZ file is read, it will build the geofence polygon:
 
@@ -96,7 +96,7 @@ Finally, a quick plot can be created to visualize the geofence, which looks like
 For the full class, please see the Jupyter file.
 
 #### Create an object to handle GeoTIFF data
-##### Class: MapObject
+###### Class: MapObject
 
 Now that the .kmz file has been dealt with, we can dynamically load the correct map data based on the KMZ model by calling the KMZ.filename variable. A new class called "MapObject" was created to deal with the GeoTIFF file. Contained within the metadata of the GeoTIFF, we can find information about the data enclosed in the file encoded by various codes: 
 

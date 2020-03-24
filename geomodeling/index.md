@@ -113,7 +113,7 @@ Code | Attribute | Value
 
 A lot more data is encoded in the metadata of these files, but this is enough for now. From this metadata we can conclude the following:
 
-- The GeoTIFF file is a 3601x3601 matrix of elevation data over $1 \text{degree}^2$ of land on Earth. 
+- The GeoTIFF file is a 3601x3601 matrix of elevation data over 1 degree<sup>2</sup> of land on Earth. 
 - The North-West coordinate is is at 41° North, -107° West. 
 - Each index within the matrix corresponds to a location 0.000278 degrees away from the indecies next to it. 
 - The value of the matrix at each location is the elevation there, in meters.

@@ -24,7 +24,7 @@ Growing up in Colorado, the mountains are a way of life. I spent many of my form
 The first step was to get a polygon of the coordinates of the desired area. The easiest way to do this was to use Google Earth Pro to draw a path and export it as a .KMZ file. The resulting path for Mt. Werner can be seen below.
 
 <p align="center">
-  <img src="path.png" width="100%">
+  <img src="images/path.png" width="100%">
 </p>
 
 ~~#### Cura Slicing

@@ -270,6 +270,12 @@ Now we have a matrix representing the elevation data of the model. This still do
 And we can visualize the data as a topographic map from above:
 
 <p align="center">
+  <img src="images/2d_model_no_gauss.png" width="100%">
+</p>
+
+And we can apply a __gaussian filter__ to the data to smooth it out!
+
+<p align="center">
   <img src="images/2d_model.png" width="100%">
 </p>
 

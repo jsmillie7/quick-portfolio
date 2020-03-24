@@ -150,12 +150,12 @@ Now we have access to all of the data in the GeoTiff file. The entire class can 
 
 #### A Mountain sized task
 
-Creating an elevation profile inside of a polygon, while excluding all data outside of it was one of the trickier parts of this entire project. How can you tell what is inside an arbitrary polygon, and what isn't, based on its coordinates? I had to develop an algorithm to check each matrix element and see if it was inside or outside of the polygon. The principle  behind the method turned out to be fairly elementary, how many lines of the polygon does the point cross?
+Creating an elevation profile inside of a polygon, while excluding all data outside of it was one of the trickier parts of this entire project. How can you tell what is inside an arbitrary polygon, and what isn't, based on its coordinates? I had to develop an algorithm to check each matrix element and see if it was inside or outside of the polygon. The principle  behind the method turned out to be fairly elementary: how many lines of the polygon does the point cross if you draw a line from it to an arbitrary reference point outside of the data set?
 
 <p align="center">
-  <img src="images/principle.png" width="100%">
+  <img src="images/principle.png" width="80%">
 </p>
-
+As you can see, points outside of the polygon will cross an __even__ number of lines (including 0), and points inside of the polygon will cross an __odd__ number of times. Visualizing this is easy, but how do you calculate it?
 
 ---
 

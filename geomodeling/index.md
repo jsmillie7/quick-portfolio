@@ -259,21 +259,23 @@ def get_elevation_array(self):
         last = complete
 ```
 
-#### We have the raw data... now what?
+### Making the data usable
 
-Now we have a matrix representing the elevation data of the model. This still doesnt really help laser cut a 3d model, since we will have to cut several layers and stack them on top of each other. In order to create layers, we need to make contour lines at discrete intevals in the data. Nicely, the python module Matplotlib automatically does this when you make a contour plot, so the hard part of this is already done! We now have a model of the elevation data at dicrete intervals! Using matplotlib, we can visualize a 3D model of the data:
+Now we have a matrix representing the elevation data of the model. This still doesnt really help laser cut a 3d model, since we will have to cut several layers and stack them on top of each other. In order to create layers, we need to make contour lines at discrete intevals in the data. Nicely, the python module Matplotlib automatically does this when you make a contour plot, so the hard part of this is already done! Accessing the contour lines created when a plot is created, we now have a model of the elevation data at dicrete intervals! 
+
+##### We can show the 3D model of the data, too:
 
 <p align="center">
   <img src="images/3d_model.png" width="100%">
 </p>
 
-And we can visualize the data as a topographic map from above:
+##### And we can visualize the data as a topographic map from above:
 
 <p align="center">
   <img src="images/2d_model_no_gauss.png" width="100%">
 </p>
 
-And we can apply a __gaussian filter__ to the data to smooth it out!
+##### And we can apply a __gaussian filter__ to the data to smooth it out!
 
 <p align="center">
   <img src="images/2d_model.png" width="100%">
@@ -281,6 +283,8 @@ And we can apply a __gaussian filter__ to the data to smooth it out!
 
 ---
 
+
+---
 ### Results
 
 <p align="center">

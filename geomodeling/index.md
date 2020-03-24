@@ -102,11 +102,22 @@ which looks like the this in a Jupyter notebook:
 
 #### Create a MapObject to handle GeoTIFF data
 
-Now that the .kmz file has been dealt with, we can dynamically load the correct map data based on the KMZ model by calling the KMZ.filename variable. A new class called "MapObject" was created to deal with the GeoTIFF file. Contained within the metadata of the GeoTIFF, we can find information about the data enclosed in the file: the North West corner coordinates, the number of datapoints to the South and East from that point which are contained, and the degrees/pixel of the 
+Now that the .kmz file has been dealt with, we can dynamically load the correct map data based on the KMZ model by calling the KMZ.filename variable. A new class called "MapObject" was created to deal with the GeoTIFF file. Contained within the metadata of the GeoTIFF, we can find information about the data enclosed in the file encoded by various codes: 
 
 Code | Attribute | Value
 :-:|:-:|:-:
+256|Pixels in X Direction|3601
+257|Pixels in Y Direction|3601
 33922|NW Corner Coordinates| Lat: 41°, Lon: -107°
+33550|Degrees per Pixel| X: 0.000278, Y: 0.000278
+
+A lot more data is encoded in the metadata of these files, but this is enough for now. From this metadata we can conclude the following:
+
+- The GeoTIFF file is a 3601x3601 matrix of elevation data over $1 \text{degree}^2$ of land on Earth. 
+- The North-West coordinate is is at 41° North, -107° West. 
+- Each index within the matrix corresponds to a location 0.000278 degrees away from the indecies next to it. 
+- The value of the matrix at each location is the elevation there, in meters.
+
 
 ---
 

@@ -314,6 +314,68 @@ def lon_dist(lat):
     return lon_dist
 ```
 
+Now that the math is understood, converting the latitude and longitude coordinates to meters is imperitive to get everything in the same scale and units. 
+#### Start by initializing a bunch of variables:
+```python
+cd = list.copy(self.mountainObject.contour_data)
+fu = list.copy(self.kmzObject.fence)
+eq = self.mountainObject.elevation_array
+
+min_lon = self.mountainObject.NW.lon
+max_lon = self.mountainObject.SE.lon
+min_lat = self.mountainObject.SE.lat
+max_lat = self.mountainObject.NW.lat
+
+data = {}
+latDist = 111319.9 #m/deg
+```
+__Even though Δlongitude isn't constant across the whole model, we'll calculate it at the mean latitude of this model__
+```python
+### Calculate mean latitude for longitude distance calculation:
+lats = []
+for layer in cd:
+    for Path in layer:
+        lats.extend(Path[0])
+### This is the distance of 1 degree of longitude at a specified latitude
+lonDist = lon_dist(np.mean(lats)) #m/deg
+```
+
+#### 
+```python
+ratio = ((max_lon-min_lon) * lonDist) if ((max_lon-min_lon) * lonDist) > ((max_lat-min_lat) * latDist) else ((max_lat-min_lat) * latDist)
+
+fuLat = np.asarray([i.lat for i in fu])
+fuLon = np.asarray([i.lon for i in fu])
+minLat = np.amin(fuLat)
+minLon = np.amin(fuLon)
+
+for num,layer in enumerate(cd):
+    d = []
+    for Path in layer:
+        lat,lon = Path
+        lat = (np.asarray(lat) - minLat) * latDist / ratio
+        lon = (np.asarray(lon) - minLon) * lonDist / ratio
+
+        d.append(np.array([lon,lat]))
+    data[num] = d
+
+fuLat = ((fuLat - np.amin(fuLat)) * latDist) / ratio
+fuLon = ((fuLon - np.amin(fuLon)) * lonDist) / ratio
+
+### vectorized, scalable model data dictionary:
+self.coord_unit = data
+### the unit height of the model used for scale calculations (number of layers):
+self.elevation_unit = (np.nanmax(eq) - np.nanmin(eq)) / ratio 
+### unit fence model:
+self.fence_unit = np.array([fuLat, fuLon])
+### The number of layers in the current model:
+self.num_layers = num + 1
+### Add a gaussian filter to smooth the data by adding an integer argument to sigma:
+if isinstance(sigma, int): 
+    self.coord_unit = self.smooth_model(self.coord_unit, sigma)
+
+```
+
 ---
 ### Results
 

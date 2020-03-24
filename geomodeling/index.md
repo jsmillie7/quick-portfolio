@@ -40,6 +40,18 @@ The US Geological Survey is an excellent resource for free Earth-relevant data. 
 
 ### Data Processing:
 
+#### A quick note on data structure
+
+The for data that is created and referenced often, a consistent data structure makes life much easier. I like using [__collections.namedtuple__](https://docs.python.org/3/library/collections.html) instances anytime that I am creating a data structure. In this project, two types of namedtuples were created:
+1. a coordinate tuple to easily access lat/lon values
+```python
+coord = namedtuple('coord','lat lon')
+```
+2. a linear equation tuple to quickly contain calculated slope (m) and offset(b) data
+```python
+linEQ = namedtuple('linEQ','m b')
+```
+
 #### Parsing the KMZ file
 
 A KMZ file is a special zipped XML file that contains all of the data surrounding the path, and most importantly for this project, a list of coordinates for each corner of the outlined polygon. [This](http://programmingadvent.blogspot.com/2013/06/kmzkml-file-parsing-with-python.html) source was a big help in figuring out how to get the coordinate data out of the KMZ file. I used the PlacemarkHandler class from this source verbatin, since the tedious work was already done. I created another class called KMZ to wrap all of the actions surrounding the KMZ data into one easy to use package:

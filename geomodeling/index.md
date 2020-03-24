@@ -100,6 +100,13 @@ which looks like the this in a Jupyter notebook:
   <img src="images/KMZ_parse.png" width="100%">
 </p>
 
+#### Create a MapObject to handle GeoTIFF data
+
+Now that the .kmz file has been dealt with, we can dynamically load the correct map data based on the KMZ model by calling the KMZ.filename variable. A new class called "MapObject" was created to deal with the GeoTIFF file. Contained within the metadata of the GeoTIFF, we can find information about the data enclosed in the file: the North West corner coordinates, the number of datapoints to the South and East from that point which are contained, and the degrees/pixel of the 
+
+Code | Attribute | Value
+:-:|:-:|:-:
+33922|NW Corner Coordinates| Lat: 41°, Lon: -107°
 
 ---
 

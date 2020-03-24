@@ -27,12 +27,16 @@ The first step was to get a polygon of the coordinates of the desired area. The 
   <img src="images/path.png" width="100%">
 </p>
 
-~~#### Cura Slicing
+#### Parsing the KMZ file
 
-~~Next, the STL needed to be sliced. While I could have just created a python file to slice and optimize, it was much simpler to use tools that were open source and already available. I created a custom printer and updated settings until I got the results I desired: no infill needed, just an outline of all of the surfaces. The resulting slicing is shown below.
+A KMZ file is a special zipped XML file that contains all of the data surrounding the path, and most importantly for this project, a list of coordinates for each corner of the outlined polygon. [This](http://programmingadvent.blogspot.com/2013/06/kmzkml-file-parsing-with-python.html) source was a big help in figuring out how to get the coordinate data out of the KMZ file. I used the PlacemarkHandler class from this source verbatin, since the tedious work was already done. 
+
+#### Getting the Elevation Data
+
+The US Geological Survey is an excellent resource for free Earth-relevant data. Using [EarthExplorer](https://earthexplorer.usgs.gov), I navigated to Mt. Werner data sets, chose the Digital Elevation branch, chose SRTM 1 Arc-Second Global data, and downloaded the result as a [GeoTIFF file](files/n40_w107_1arc_v3.tif).
 
 <p align="center">
-  <img src="cura.png" width="100%">
+  <img src="images/USGS.png" width="100%">
 </p>
 
 #### Python G-Code Parsing

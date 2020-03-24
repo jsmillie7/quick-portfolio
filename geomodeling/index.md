@@ -94,6 +94,11 @@ class KMZ:
         plt.show()
 ```
 
+which looks like the this in a Jupyter notebook:
+
+<p align="center">
+  <img src="images/KMZ_parse.png" width="100%">
+</p>
 
 
 ---

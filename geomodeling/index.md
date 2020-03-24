@@ -165,7 +165,7 @@ As you can see, points outside of the polygon will cross an __even__ number of l
 
 By summing the values returned for all segments in the polygon, we can tell if a point is inside or outside of the polygon. If it is inside the polygon, we add its elevation to the matrix, otherwise, we leave it as None to ignore the point. 
 
-The linear equation calculation looks like this:
+__The linear equation parameters are calculated using self.get_linear_equation__
 
 ```python
 def get_linear_equation(self, pt1, pt2):
@@ -182,7 +182,7 @@ def get_linear_equation(self, pt1, pt2):
     return linEQ(m=m, b=b)
 ```
 
-and the intersection is determined by:
+__An individual intersection is determined with self.intersection__
 
 ```python
 def intersection(self, pt1, pt2, pt3, pt4=None):
@@ -220,6 +220,56 @@ def intersection(self, pt1, pt2, pt3, pt4=None):
         return 1
     return 0
 ```
+
+__A point is checked along every leg of the polygon using self.get_passes:__
+```python
+def get_passes(self, loc, ref=None):
+    ### passes is the number of times the location-reference line cross through a polygon line.
+    ### The argumenr 'loc' is the current coordinate that it being tested (pt3 in self.intersection).
+    ### The argument 'ref' is the reference point which will be automatically calculated if left as None. (pt4 in self.intersection)
+
+    ### An odd number means the point is within the polygon
+    ### An even number means the point is outside the polygon
+
+    passes = 0
+    for num in range(len(self.polygon)-1):
+        passes += self.intersection(self.polygon[num],self.polygon[num+1], loc, ref)
+    return passes
+```
+
+__The entire elevation profile is created using self.get_elevation_array__
+```python
+def get_elevation_array(self):
+    ### A variable to keep track of the loading progress 
+    last = 0
+    ### An empty array of zeros to be filled with elevation data
+    self.elevation_array = np.zeros((self.lon_num, self.lat_num))
+    for lat_num, Lat in enumerate(self.Dlat):
+        for lon_num, Lon in enumerate(self.Dlon):
+            ### in_poly determines if the point is within the polygon. 0 = no, 1 = yes
+            in_poly = self.get_passes(loc=coord(lat=Lat, lon=Lon)) % 2
+            ### Update the index of the array with the appropriate value
+            self.elevation_array[lon_num, lat_num] = self.mapObject.elevation(coord(lat=Lat, lon=Lon)) if in_poly == 1 else None
+        ### The rest of the code updates the Jupyter UI to display the loading progress, as 
+        ### a big file can take several minutes to load.
+        complete = int(round(lat_num/self.lat_num*100,0))
+        if complete != last:
+            clear_output()
+            display(f'Creating elevation array: {complete}% Completed')
+        last = complete
+```
+
+Using the visualization functions that were added to the _Mountain_ class, we can visualize a 3D model of the data:
+
+<p align="center">
+  <img src="images/3d_model.png" width="100%">
+</p>
+
+And we can visualize the data as a topographic map from above:
+
+<p align="center">
+  <img src="images/2d_model.png" width="100%">
+</p>
 
 ---
 

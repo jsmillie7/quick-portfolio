@@ -113,20 +113,51 @@ Code | Attribute | Value
 
 A lot more data is encoded in the metadata of these files, but this is enough for now. From this metadata we can conclude the following:
 
-- The GeoTIFF file is a 3601x3601 matrix of elevation data over 1 degree<sup>2</sup> of land on Earth. 
+- The GeoTIFF file is a 3601x3601 matrix of elevation data over 1 degree<sup>2</sup> of area on Earth. 
 - The North-West coordinate is is at 41° North, -107° West. 
 - Each index within the matrix corresponds to a location 0.000278 degrees away from the indecies next to it. 
 - The value of the matrix at each location is the elevation there, in meters.
+
+Finding a coordinate in the matrix is as simple as calculating the degrees per pixel times the change in degrees from the NW corner:
+
+```python
+def delta(self, coords):
+    ### the argument 'coords' must be a namedtuple instance of coord
+
+    ### make sure the coordinate is the right type:
+    if type(coords) is not type(self.test):
+        raise Exception('coords is of the wrong type! must be coord namedtuple.')
+
+    ### calculate the index of the matrix for the desired location
+    n_lat = int(abs((coords.lat-self.NW.lat)/self.dlat))
+    n_lon = int(abs((coords.lon-self.NW.lon)/self.dlon))
+    return (n_lat, n_lon)
+```
+
+This function returns the matrix indicies that correspond to a specific coordinate. To get the elevation at that coordinate, another function was added to the class:
+
+```python
+def elevation(self,coords):
+    ### the argument 'coords' must be a namedtuple instance of coord
+
+    ### get the indicies of the array that correspond to the lat/lon of coordinates
+    n_lat, n_lon = self.delta(coords)
+
+    ### Check to make sure that n_lat and n_lon are within the range of the array
+    if n_lat not in range(self.size[0]) or n_lon not in range(self.size[1]):
+        raise Exception(f'{n_lat} or {n_lon} Not in Range!!')
+
+    return self.array[n_lat][n_lon]
+```
+
+Now we have access to all of the data in the GeoTiff file. The entire class can be seen in the Jupyter file. The next step is to build a method to build an elevaton profile for the data contained within the polygon in the KMZ file. 
 
 
 ---
 
 ### Results
 
-Running the new g-code file on my laser cutter, I was pleasantly surprised with the results: a 90 layer sphere made out just math and paper!
-
 <p align="center">
-  <img src="result.png" width="100%">
+  <img src="images/header.png" width="100%">
 </p>
 
-This program is remarkably useful for simple 3D objects! The [Jupyter Notebook](Cura2Laser.ipynb) is available here.

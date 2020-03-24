@@ -19,12 +19,12 @@ Growing up in Colorado, the mountains are a way of life. I spent many of my form
 
 ### Process:
 
-~~#### Fusion 360 CAD Model
+#### Outlining the Area
 
-~~The first step in the process involved using Autodesk Fusion 360 to draw a CAD model of the desired shape. I chose to start with a simple design: a sphere with a hole running through it to put on an alignment bolt which will be cut out of cardstock. While the postprocessor in Fusion 360 is powerful, and I use it when generating g-code for 2D .SVG files, there is not (as far as I can tell), an easy solution to create outlines at specific intervals the way a 3D printer slicer does, so an .STL file was created from the model below and exported to Cura.
+The first step was to get a polygon of the coordinates of the desired area. The easiest way to do this was to use Google Earth Pro to draw a path and export it as a .KMZ file. The resulting path for Mt. Werner can be seen below.
 
 <p align="center">
-  <img src="fusion360.png" width="100%">
+  <img src="path.png" width="100%">
 </p>
 
 ~~#### Cura Slicing

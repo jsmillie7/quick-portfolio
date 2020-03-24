@@ -156,7 +156,7 @@ Creating an elevation profile inside of a polygon, while excluding all data outs
   <img src="images/principle.png" width="80%">
 </p>
 
-As you can see, points outside of the polygon will cross an __even__ number of lines (including 0), and points inside of the polygon will cross an __odd__ number of times. Visualizing this is easy, but how do you calculate it? Since these are both lines, basic linear equations in the form of Y = mx+b can be calculated for them. Now that we have the equations (the slope _m_ and offset _b_) for both line segments, we can calculate where they intersect by the following logic:
+As you can see, points outside of the polygon will cross an __even__ number of lines (including 0), and points inside of the polygon will cross an __odd__ number of times. Visualizing this is easy, but how do you calculate it? Since both the leg of the polygon and the data-to-reference-point are line segments, basic linear equations in the form of Y = mx+b can be calculated for them. Now that we have the equations (the slope _m_ and offset _b_) for both line segments, we can calculate how many times they intersect by the following logic:
 
 <p align="center">
   <img src="images/block_diagram.png" width="80%">
@@ -259,7 +259,9 @@ def get_elevation_array(self):
         last = complete
 ```
 
-Using the visualization functions that were added to the _Mountain_ class, we can visualize a 3D model of the data:
+#### We have the raw data... now what?
+
+Now we have a matrix representing the elevation data of the model. This still doesnt really help laser cut a 3d model, since we will have to cut several layers and stack them on top of each other. In order to create layers, we need to make contour lines at discrete intevals in the data. Nicely, the python module Matplotlib automatically does this when you make a contour plot, so the hard part of this is already done! We now have a model of the elevation data at dicrete intervals! Using matplotlib, we can visualize a 3D model of the data:
 
 <p align="center">
   <img src="images/3d_model.png" width="100%">

@@ -148,6 +148,14 @@ def elevation(self,coords):
 
 Now we have access to all of the data in the GeoTiff file. The entire class can be seen in the Jupyter file. The next step is to build a method to build an elevaton profile for the data contained within the polygon in the KMZ file. 
 
+#### A Mountain sized task
+
+Creating an elevation profile inside of a polygon, while excluding all data outside of it was one of the trickier parts of this entire project. How can you tell what is inside an arbitrary polygon, and what isn't, based on its coordinates? I had to develop an algorithm to check each matrix element and see if it was inside or outside of the polygon. The principle  behind the method turned out to be fairly elementary, how many lines of the polygon does the point cross?
+
+<p align="center">
+  <img src="images/principle.png" width="100%">
+</p>
+
 
 ---
 

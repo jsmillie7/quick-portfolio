@@ -329,7 +329,7 @@ max_lat = self.mountainObject.NW.lat
 data = {}
 latDist = 111319.9 #m/deg
 ```
-__Even though Δlongitude isn't constant across the whole model, we'll calculate it at the mean latitude of this model__
+__Δlongitude is calculated at the mean latitude of the model__
 ```python
 ### Calculate mean latitude for longitude distance calculation:
 lats = []
@@ -340,15 +340,21 @@ for layer in cd:
 lonDist = lon_dist(np.mean(lats)) #m/deg
 ```
 
-#### 
+__In order to create a scaleable vector, we need to calculate the ratio of latitude to longitude, and set whichever is larger to 1.__ By doing this, we can create a unitless model that is proportionate. 
 ```python
 ratio = ((max_lon-min_lon) * lonDist) if ((max_lon-min_lon) * lonDist) > ((max_lat-min_lat) * latDist) else ((max_lat-min_lat) * latDist)
+```
 
+__A few more variables are needed: arrays of the polygon coordinates separated into latitude and longitude.__ From these, we can find the minimum latitude and longitude, which is used to vectorize the model.
+```python
 fuLat = np.asarray([i.lat for i in fu])
 fuLon = np.asarray([i.lon for i in fu])
 minLat = np.amin(fuLat)
 minLon = np.amin(fuLon)
+```
 
+__Here is where the vectorization happens.__ We iterate through each path in each layer of the contour data, and vectorize each latitude and longitude within the path to scale it down to unitless values. The fence unit variable _fu_ is also vectorized in a similar way.
+```python
 for num,layer in enumerate(cd):
     d = []
     for Path in layer:
@@ -361,7 +367,10 @@ for num,layer in enumerate(cd):
 
 fuLat = ((fuLat - np.amin(fuLat)) * latDist) / ratio
 fuLon = ((fuLon - np.amin(fuLon)) * lonDist) / ratio
+```
 
+__Finally, we save all of our values into class variables, so they can be used later.__
+```python
 ### vectorized, scalable model data dictionary:
 self.coord_unit = data
 ### the unit height of the model used for scale calculations (number of layers):
@@ -373,8 +382,8 @@ self.num_layers = num + 1
 ### Add a gaussian filter to smooth the data by adding an integer argument to sigma:
 if isinstance(sigma, int): 
     self.coord_unit = self.smooth_model(self.coord_unit, sigma)
-
 ```
+To see the entire class, in full, please see the Jupyter Notebook
 
 ---
 ### Results

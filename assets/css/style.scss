@@ -32,7 +32,7 @@ time, mark, audio, video {
 /* Base text styles */
 
 body {
-  padding:10px 30px 0 0;
+  padding:5;
   font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	color: #232323;
@@ -327,7 +327,7 @@ a.buttons:hover {
 section {
   width:100%;
   float:right;
-  padding:0 0 50px 200px;
+  padding:0 0 50px 0;
 }
 
 
@@ -366,7 +366,7 @@ footer {
 
   section {
     padding:20px 84px 20px 50px;
-    margin:0 0 20px;
+    margin:0 0 20px 200px;
   }
 
   header a small {
@@ -392,7 +392,7 @@ footer {
 
 	section {
     padding:10px 0 10px 20px;
-    margin:0 0 30px;
+    margin:0 0 30px 200px;
   }
 
 	footer {

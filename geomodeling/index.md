@@ -7,10 +7,10 @@
 ##### Jupyter Notebook
 ---
 ### Contents:
-1. [Background](#Background)
-2. [Resource Acquisition](#Resource-Acquisition)
-3. [Data Processing](#Data-Processing)
-4. [Making the data usable](#Making-the-data-usable)
+1. [Background](#background)
+2. [Resource Acquisition](#resource-acquisition)
+3. [Data Processing](#data-processing)
+4. [Making the data usable](#making-the-data-usable)
 
 ---
 ### Background:

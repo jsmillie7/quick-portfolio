@@ -11,6 +11,7 @@
 2. [Resource Acquisition](#Resource-Acquisition)
 3. [Data Processing](#Data-Processing)
 4. [Making the data usable](#Making-the-data-usable)
+
 ---
 ### Background:
 

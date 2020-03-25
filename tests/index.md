@@ -8,7 +8,7 @@
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 1690px;
+  min-width: 10px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
@@ -24,9 +24,25 @@
 </style>
 
 <div class="dropdown">
-  <img src="/images/controller.png" alt="Controller" width="50" height="100">
+  <img src="/images/ATTiny/1.jpg" alt="Controller" width="50" height="50">
   <div class="dropdown-content">
-  <img src="/images/controller.png" alt="Controller" width="150" height="300">
+  <img src="/images/ATTiny/1.jpg" alt="Controller" width="650" height="650">
+  <div class="desc">Controller</div>
+  </div>
+</div>
+
+<div class="dropdown">
+  <img src="/images/ATTiny/2.jpg" alt="Controller" width="50" height="50">
+  <div class="dropdown-content">
+  <img src="/images/ATTiny/2.jpg" alt="Controller" width="650" height="650">
+  <div class="desc">Controller</div>
+  </div>
+</div>
+
+<div class="dropdown">
+  <img src="/images/ATTiny/3.jpg" alt="Controller" width="50" height="50">
+  <div class="dropdown-content">
+  <img src="/images/ATTiny/3.jpg" alt="Controller" width="650" height="650">
   <div class="desc">Controller</div>
   </div>
 </div>

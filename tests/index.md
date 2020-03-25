@@ -24,7 +24,7 @@
 </style>
 
 <div class="dropdown">
-  <img src="/images/ATTiny/1.jpg" alt="Controller" width="50" height="50">
+  <img src="/images/ATTiny/1.jpg" alt="Controller" width="100" height="100">
   <div class="dropdown-content">
   <img src="/images/ATTiny/1.jpg" alt="Controller" width="350" height="350">
   <div class="desc">Top of Programmer without ATTiny chip installed.</div>
@@ -32,7 +32,7 @@
 </div>
 
 <div class="dropdown">
-  <img src="/images/ATTiny/2.jpg" alt="Controller" width="50" height="50">
+  <img src="/images/ATTiny/2.jpg" alt="Controller" width="100" height="100">
   <div class="dropdown-content">
   <img src="/images/ATTiny/2.jpg" alt="Controller" width="350" height="350">
   <div class="desc">Arduino Nano Microcontroller</div>
@@ -40,7 +40,7 @@
 </div>
 
 <div class="dropdown">
-  <img src="/images/ATTiny/3.jpg" alt="Controller" width="50" height="50">
+  <img src="/images/ATTiny/3.jpg" alt="Controller" width="100" height="100">
   <div class="dropdown-content">
   <img src="/images/ATTiny/3.jpg" alt="Controller" width="350" height="350">
   <div class="desc">Underside of programmer board showing MUX, electrolytic capacitor and Arduino Nano headers, without Arduino installed.</div>
@@ -48,7 +48,7 @@
 </div>
 
 <div class="dropdown">
-  <img src="/images/ATTiny/4.jpg" alt="Controller" width="50" height="50">
+  <img src="/images/ATTiny/4.jpg" alt="Controller" width="100" height="100">
   <div class="dropdown-content">
   <img src="/images/ATTiny/4.jpg" alt="Controller" width="350" height="350">
   <div class="desc">Top of Programmer Board, showing ATTiny84 in socket, jumper shunt in incorrect position (should be moved to ATTiny84), and test LED circuit.</div>
@@ -56,7 +56,7 @@
 </div>
 
 <div class="dropdown">
-  <img src="/images/ATTiny/5.jpg" alt="Controller" width="50" height="50">
+  <img src="/images/ATTiny/5.jpg" alt="Controller" width="100" height="100">
   <div class="dropdown-content">
   <img src="/images/ATTiny/5.jpg" alt="Controller" width="350" height="350">
   <div class="desc">Programmer Board with ATTiny84 (programmer in ATTiny85 mode, should be switched to 84 mode)</div>
@@ -64,7 +64,7 @@
 </div>
 
 <div class="dropdown">
-  <img src="/images/ATTiny/6.jpg" alt="Controller" width="50" height="50">
+  <img src="/images/ATTiny/6.jpg" alt="Controller" width="100" height="100">
   <div class="dropdown-content">
   <img src="/images/ATTiny/6.jpg" alt="Controller" width="350" height="350">
   <div class="desc">ATTiny84/85 programmer board with Arduino Nano installed.</div>

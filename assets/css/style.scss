@@ -224,6 +224,7 @@ header {
 	background-color: #171717;
 	color: #FDFDFB;
   width:170px;
+  height:100%
   float:left;
   position:fixed;
 	border: 1px solid #000;
@@ -328,6 +329,7 @@ section {
   width:100%;
   float:right;
   padding:0 0 50px 0;
+  margin-left:200px
 }
 
 
@@ -366,7 +368,7 @@ footer {
 
   section {
     padding:20px 84px 20px 50px;
-    margin:0 0 20px 200px;
+    margin:0 0 20px;
   }
 
   header a small {
@@ -392,7 +394,7 @@ footer {
 
 	section {
     padding:10px 0 10px 20px;
-    margin:0 0 30px 200px;
+    margin:0 0 30px;
   }
 
 	footer {

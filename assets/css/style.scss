@@ -214,7 +214,7 @@ td {
 
 /* Wrapper */
 .wrapper {
-  width:960px;
+  width:100%;
 }
 
 
@@ -325,7 +325,7 @@ a.buttons:hover {
 /* Section - for main page content */
 
 section {
-  width:100%;
+  width:650px;
   float:right;
   padding-bottom:50px;
 }
@@ -365,7 +365,7 @@ footer {
   }
 
   section {
-    padding:20px 20px 20px 50px;
+    padding:20px 84px 20px 50px;
     margin:0 0 20px;
   }
 
@@ -380,7 +380,7 @@ footer {
   }
 }
 
-@media print, screen and (max-width: 1200px) {
+@media print, screen and (max-width: 720px) {
   body {
     word-wrap:break-word;
   }
@@ -392,7 +392,7 @@ footer {
 
 	section {
     padding:10px 0 10px 20px;
-    margin:0 0 0px;
+    margin:0 0 30px;
   }
 
 	footer {

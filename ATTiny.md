@@ -39,16 +39,79 @@ The circuit was designed in AutoDesk Eagle and sent to OSH Park for fabrication.
 
 The final product turned out great. It worked perfectly and has made my life programming ATTinys much simpler. I did a bad job of cleaning off the extra flux, so the board has a bit of a crust on it, but I have since learned my lesson. My soldering skills have also improved significantly since this was done.
 
-<p align="center">
-  <a href="https://imgur.com/a/fdHZ2vQ">
-    <img src="images/ATTiny/1.jpg" width="15%">
-    <img src="images/ATTiny/2.jpg" width="15%">
-    <img src="images/ATTiny/3.jpg" width="15%">
-    <img src="images/ATTiny/4.jpg" width="15%">
-    <img src="images/ATTiny/5.jpg" width="15%">
-    <img src="images/ATTiny/6.jpg" width="15%">
-  </a>
-</p>
+
+<style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 1px;
+  box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.desc {
+  padding: 0px;
+  text-align: left;
+}
+</style>
+
+<div class="dropdown">
+  <img src="/images/ATTiny/1.jpg" alt="Controller" width="100" height="100">
+  <div class="dropdown-content">
+  <img src="/images/ATTiny/1.jpg" alt="Controller" width="350" height="350">
+  <div class="desc">Top of Programmer without ATTiny chip installed.</div>
+  </div>
+</div>
+
+<div class="dropdown">
+  <img src="/images/ATTiny/2.jpg" alt="Controller" width="100" height="100">
+  <div class="dropdown-content">
+  <img src="/images/ATTiny/2.jpg" alt="Controller" width="350" height="350">
+  <div class="desc">ATTiny84/85 programmer board with Arduino Nano installed.</div>
+  </div>
+</div>
+
+<div class="dropdown">
+  <img src="/images/ATTiny/3.jpg" alt="Controller" width="100" height="100">
+  <div class="dropdown-content">
+  <img src="/images/ATTiny/3.jpg" alt="Controller" width="350" height="350">
+  <div class="desc">Top of Programmer Board, showing ATTiny84 in socket, jumper shunt in incorrect position (should be moved to ATTiny84), and test LED circuit.</div>
+  </div>
+</div>
+
+<div class="dropdown">
+  <img src="/images/ATTiny/4.jpg" alt="Controller" width="100" height="100">
+  <div class="dropdown-content">
+  <img src="/images/ATTiny/4.jpg" alt="Controller" width="350" height="350">
+  <div class="desc">Underside of programmer board showing MUX, electrolytic capacitor and Arduino Nano headers, without Arduino installed.</div>
+  </div>
+</div>
+
+<div class="dropdown">
+  <img src="/images/ATTiny/5.jpg" alt="Controller" width="100" height="100">
+  <div class="dropdown-content">
+  <img src="/images/ATTiny/5.jpg" alt="Controller" width="350" height="350">
+  <div class="desc">Programmer Board with ATTiny84 (programmer in ATTiny85 mode, should be switched to 84 mode)</div>
+  </div>
+</div>
+
+<div class="dropdown">
+  <img src="/images/ATTiny/6.jpg" alt="Controller" width="100" height="100">
+  <div class="dropdown-content">
+  <img src="/images/ATTiny/6.jpg" alt="Controller" width="350" height="350">
+  <div class="desc">Arduino Nano Microcontroller</div>
+  </div>
+</div>
 
 #### Bill of Materials:
 

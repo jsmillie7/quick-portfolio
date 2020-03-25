@@ -299,7 +299,7 @@ Now we have a matrix representing the elevation data of the model. This still do
 
 #### Vectorizing the data
 
-The next step is to make the recently acquired data scaleable. The first hurdle in vectorizing the data involves realizing that both the distance between 1 degree of longitude varies significantly based on latitude. Since Earth is an oblate spheroid, latitude also varies, but by a much less significant amount, so I will treat Δlatitude as a constant. To calculate Δlongitude (the distance of 1 degree of longitude in m), I use the following definition:
+The next step is to make the recently acquired data scaleable. The first hurdle in vectorizing the data involves realizing that the distance between 2 degrees of longitude varies significantly based on latitude. Since Earth is an oblate spheroid, latitude also varies, but by a much less significant amount, so I will treat Δlatitude as a constant. To calculate Δlongitude (the distance between 2 degrees of longitude in m), I use the following definition:
 
 ```python
 def lon_dist(lat):
@@ -342,7 +342,8 @@ lonDist = lon_dist(np.mean(lats)) #m/deg
 
 __In order to create a scaleable vector, we need to calculate the ratio of latitude to longitude, and set whichever is larger to 1.__ By doing this, we can create a unitless model that is proportionate. 
 ```python
-ratio = ((max_lon-min_lon) * lonDist) if ((max_lon-min_lon) * lonDist) > ((max_lat-min_lat) * latDist) else ((max_lat-min_lat) * latDist)
+ratio = ((max_lon-min_lon) * lonDist) if ((max_lon-min_lon) * lonDist) > ((max_lat-min_lat) * latDist) \
+                                      else ((max_lat-min_lat) * latDist)
 ```
 
 __A few more variables are needed: arrays of the polygon coordinates separated into latitude and longitude.__ From these, we can find the minimum latitude and longitude, which is used to vectorize the model.

@@ -561,10 +561,6 @@ http://stackoverflow.com/a/34696029/383904
 	text-decoration: none;
 }  
   
-img {
-	width:100%;
-	image-orientation: from-image;
-}
 </style>
 
 <div class="CSSgal">
@@ -578,19 +574,19 @@ img {
 
   <div class="slider">
     <div style="background:#819595;">
-			<img src="images/1.jpg">
+			<img src="images/1.jpg" width="100%">
 		</div>
     <div style="background:#819595;">
-			<img src="images/2.jpg">
+			<img src="images/2.jpg" width="100%">
 		</div>
     <div style="background:#819595;">
-			<img src="images/4.jpg">
+			<img src="images/4.jpg" width="100%">
 		</div>
     <div style="background:#819595;">
-			<img src="images/5.jpg">
+			<img src="images/5.jpg" width="100%">
 		</div>
-		<div style="background:#819595;">
-			<img src="images/6.jpg">
+    <div style="background:#819595;">
+			<img src="images/6.jpg" width="100%">
 		</div>
   </div>
   

@@ -11,13 +11,65 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    
+<style>
+.container {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+</style>
+    
   </head>
   <body>
     <div class="wrapper">
       <header>
-        <a href="/index">
-          <img src="{{site.logo | relative_url}}" alt="Logo" width="80%">
-        </a>
+        <div class="container">
+          <a href="/index">
+            <img src="{{site.logo | relative_url}}" alt="Logo" width="80%">
+          </a>
+<!--           <img src="img_avatar.png" alt="Avatar" class="image" style="width:100%"> -->
+          <div class="middle">
+            <div class="text">{{ site.title | default: site.github.repository_name }}</div>
+        </div>
+</div>
+<!--         <a href="/index"> -->
+<!--           <img src="{{site.logo | relative_url}}" alt="Logo" width="80%"> -->
+<!--         </a> -->
         <h3 class="header" style="color:white;">{{ site.title | default: site.github.repository_name }}</h3>
         <h4 style="color:white;">{{ site.degree }}</h4>
         <p class="header">{{ site.description | default: site.github.project_tagline }}</p>

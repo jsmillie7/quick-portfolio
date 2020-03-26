@@ -1,37 +1,6 @@
-<style>
-  /* Container holding the image and the text */
-.container {
-  position: relative;
-  text-align: center;
-  color: white;
-}
-
-/* Bottom left text */
-.bottom-left {
-  position: absolute;
-  bottom: 8px;
-  left: 16px;
-}
-
-/* Top left text */
-.top-left {
-  position: absolute;
-  top: 8px;
-  left: 16px;
-}
-</style>
-
-<div class="container">
-  <img src="images/header.png" alt="Steamboat" style="width:100%;">
-  <div class="bottom-left"><h2>Modeling the Earth</h2></div>
-<div class="top-left">
-  <a href="/index">
-    <img src="/images/back.png" alt="Back" height="35" width="35">
-  </a>
-  </div>
-</div>
-
-
+<a href="index">
+<img src="images/back.png" alt="Back" height="35" width="35">
+</a>
 
 ## Modeling the Earth
 

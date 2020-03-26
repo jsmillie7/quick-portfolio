@@ -1,4 +1,4 @@
-<a href="index">
+<a href="/">
 <img src="/images/back.png" alt="Back" height="35" width="35">
 </a>
 

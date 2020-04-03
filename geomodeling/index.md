@@ -6,7 +6,7 @@
 
 ## Modeling the Earth
 
-##### [Jupyter Notebook](files/mountain_modeling.ipynb)
+##### [Jupyter Notebook](files/Mountain_Modeling.ipynb)
 ---
 ### Contents:
 1. [Background](#background)
@@ -107,7 +107,7 @@ Finally, a quick plot can be created to visualize the geofence, which looks like
   <img src="images/KMZ_parse.png" width="100%">
 </p>
 
-For the full class, please see the [Jupyter Notebook](/files/mountain_modeling.ipynb).
+For the full class, please see the [Jupyter Notebook](files/Mountain_Modeling.ipynb).
 
 #### Create an object to handle GeoTIFF data
 ###### Class: MapObject
@@ -411,4 +411,4 @@ While the python program does most of the work, this project was far from done o
    <img src="images/6.jpg" width="100%">
 </p>
 
-__The full code is available in the [Jupyter Notebook](files/mountain_modeling.ipynb).
+__The full code is available in the [Jupyter Notebook](files/Mountain_Modeling.ipynb).

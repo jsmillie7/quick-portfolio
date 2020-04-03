@@ -11,7 +11,7 @@ My name is James Smillie. I am a Colorado native and alumnus of the University o
 
 ### [3D Modeling Mountains](/geomodeling)
 <p align="center">
-  <a href="/2d_3d/2d_3d">
+  <a href="/geomodeling">
     <img src="geomodeling/images/2d_model.png" title="Mountain Modeling" width="100%">
   </a>
 </p>

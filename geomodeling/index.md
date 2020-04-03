@@ -406,7 +406,6 @@ While the python program does most of the work, this project was far from done o
 <p align="center">
    <img src="images/1.jpg" width="100%">
    <img src="images/2.jpg" width="100%">
-   <img src="images/3.jpg" width="100%">
    <img src="images/4.jpg" width="100%">
    <img src="images/5.jpg" width="100%">
    <img src="images/6.jpg" width="100%">

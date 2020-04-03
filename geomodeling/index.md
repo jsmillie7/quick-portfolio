@@ -392,7 +392,7 @@ To see the entire class, in full, please see the Jupyter Notebook
 From here, the data is in numpy arrays as unit vectors. In order to scale the model, it just needs to be multiplied by whatever scale is desired. The code is then output to a g-code file, where is can be sent to the laser using either Universal G-Code Sender or uploading it to the ESP's web server with a cURL command. A visualized version of the G-Code looks like this:
 
 <p align="center">
-  <img src="images/UGS.png" width="100%">
+  <img src="images/g-code.png" width="100%">
 </p>
 
 An outline of the cutout is added to every layer, which isn't the most space-efficient, but ensures everything is cut out correctly. The layer is cut out completely, and a low-power pass is also added to outline the layer above it on the paper to serve as a guide when glueing.

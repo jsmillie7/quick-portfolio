@@ -401,7 +401,7 @@ An outline of the cutout is added to every layer, which isn't the most space-eff
 ---
 ### Results
 
-While the python program does most of the work, this project was far from done once the g-code files were generated. The laser took around 25 minutes to cut out each sheet, and there were 4 total sheets for this model. Once each layer was cut, I used a glue stick to adhere each layer to the one below it, using the low-power outline that I added as a guide. This labor-intensive task took around three hours to complete, but the final result was absolutely worth the effort:
+While the python program does most of the work, this project was far from done once the g-code files were generated. The laser took around 25 minutes to cut out each sheet, and there were 4 total sheets for this model. Once each layer was cut, I used a glue stick to adhere each layer to the one below it, using the low-power outline that I added as a guide. This labor-intensive task took around three hours to complete, but the final result was absolutely worth the effort. The following model is Mt. Werner, Steamboat Ski Resort, roughly at 1:106,000 scale. This 60mm scale model is 76 layers.
 
 <p align="center">
    <img src="images/1.jpg" width="100%">

@@ -6,7 +6,7 @@
 
 ## Modeling the Earth
 
-##### Jupyter Notebook
+##### [Jupyter Notebook](/files/mountain_modeling.ipynb)
 ---
 ### Contents:
 1. [Background](#background)
@@ -107,7 +107,7 @@ Finally, a quick plot can be created to visualize the geofence, which looks like
   <img src="images/KMZ_parse.png" width="100%">
 </p>
 
-For the full class, please see the Jupyter file.
+For the full class, please see the [Jupyter Notebook](/files/mountain_modeling.ipynb).
 
 #### Create an object to handle GeoTIFF data
 ###### Class: MapObject
@@ -388,7 +388,7 @@ self.num_layers = num + 1
 if isinstance(sigma, int): 
     self.coord_unit = self.smooth_model(self.coord_unit, sigma)
 ```
-To see the entire class, in full, please see the Jupyter Notebook
+To see the entire class, in full, please see the [Jupyter Notebook](/files/mountain_modeling.ipynb).
 
 From here, the data is in numpy arrays as unit vectors. In order to scale the model, it just needs to be multiplied by whatever scale is desired. The code is then output to a g-code file, where is can be sent to the laser using either Universal G-Code Sender or uploading it to the ESP's web server with a cURL command. A visualized version of the G-Code looks like this:
 
@@ -410,3 +410,5 @@ While the python program does most of the work, this project was far from done o
    <img src="images/5.jpg" width="100%">
    <img src="images/6.jpg" width="100%">
 </p>
+
+__The full code is available in the [Jupyter Notebook](/files/mountain_modeling.ipynb).

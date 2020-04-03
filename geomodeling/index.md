@@ -13,6 +13,7 @@
 2. [Resource Acquisition](#resource-acquisition)
 3. [Data Processing](#data-processing)
 4. [Making the data usable](#making-the-data-usable)
+5. [Results](#results)
 
 ---
 ### Background:
@@ -400,4 +401,12 @@ An outline of the cutout is added to every layer, which isn't the most space-eff
 ---
 ### Results
 
-After all of this work, the original goal was accomplished: 
+While the python program does most of the work, this project was far from done once the g-code files were generated. The laser took around 25 minutes to cut out each sheet, and there were 4 total sheets for this model. Once each layer was cut, I used a glue stick to adhere each layer to the one below it, using the low-power outline that I added as a guide. This labor-intensive task took around three hours to complete, but the final result was absolutely worth the effort:
+
+<p align="center">
+  <img src="images/1.png" width="100%">
+   <img src="images/2.png" width="100%">
+   <img src="images/3.png" width="100%">
+   <img src="images/4.png" width="100%">
+   <img src="images/5.png" width="100%">
+</p>

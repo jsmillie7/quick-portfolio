@@ -9,20 +9,20 @@ My name is James Smillie. I am a Colorado native and alumnus of the University o
 ---
 ## Software
 
+### [3D Modeling Mountains](/geomodeling)
+<p align="center">
+  <a href="/2d_3d/2d_3d">
+    <img src="geomodeling/images/2d_model.png" title="Mountain Modeling" width="100%">
+  </a>
+</p>
+
+---
+
 ### [Instrument Maintenance Manager](/instrument_mgr)
 
 <p align="center">
   <a href="/instrument_mgr">
     <img src="images/InstrumentMaintenance.PNG" title="Instrument Maintenance Manager" width="100%">
-  </a>
-</p>
-
----
-### [3D-2D G-Code Optimizer](/2d_3d/2d_3d)
-
-<p align="center">
-  <a href="/2d_3d/2d_3d">
-    <img src="2d_3d/laser_optimized.png" title="G-Code Flattener" width="100%">
   </a>
 </p>
 

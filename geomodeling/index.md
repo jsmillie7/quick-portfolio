@@ -186,10 +186,10 @@ def get_linear_equation(self, pt1, pt2):
     ### Calculate the slope and offset of linear equation that 
     ### connects two points of the form y = mx + b
 
-    ### Slope (m):
+    ### Slope (m) is dy/dx:
     m = (pt2.lon - pt1.lon) / (pt2.lat - pt1.lat)
 
-    ### Offset (b):
+    ### Offset (b) is where the line crosses 0 on the Y axis:
     b = pt2.lon - m*pt2.lat
 
     ### linEQ is a namedtuple to easily reference the slope or offset
@@ -404,9 +404,10 @@ An outline of the cutout is added to every layer, which isn't the most space-eff
 While the python program does most of the work, this project was far from done once the g-code files were generated. The laser took around 25 minutes to cut out each sheet, and there were 4 total sheets for this model. Once each layer was cut, I used a glue stick to adhere each layer to the one below it, using the low-power outline that I added as a guide. This labor-intensive task took around three hours to complete, but the final result was absolutely worth the effort:
 
 <p align="center">
-  <img src="images/1.png" width="100%">
-   <img src="images/2.png" width="100%">
-   <img src="images/3.png" width="100%">
-   <img src="images/4.png" width="100%">
-   <img src="images/5.png" width="100%">
+   <img src="images/1.jpg" width="100%">
+   <img src="images/2.jpg" width="100%">
+   <img src="images/3.jpg" width="100%">
+   <img src="images/4.jpg" width="100%">
+   <img src="images/5.jpg" width="100%">
+   <img src="images/6.jpg" width="100%">
 </p>

@@ -54,6 +54,7 @@ Here is the set of boards that I received from OSH Park:
     <img src="images/1.jpg" width="95%">
     <img src="images/2.jpg" width="95%">
     <img src="images/3.jpg" width="95%">
+    <img src="images/tft2.gif" width="80%">
 </p>
 
 ### And here is a GIF of it in action!

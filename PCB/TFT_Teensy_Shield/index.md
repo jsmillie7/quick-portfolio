@@ -33,23 +33,29 @@ The screen's SPI pins were moved to one end of the board, and the screen conveni
 
 
 <p align="center">
-    <img src="images/board_eagle.png"/>
+    <img src="images/board_eagle.png"><br>
+    Eagle board Layout<br>
+    
 </p>
 
-#### P2
+#### The Resulting Board
+
+Here is the set of boards that I received from OSH Park:
+
+<p align="center">
+    <img src="images/final_board.jpg"/>
+</p>
+
+#### After soldering all of the pins in place and tesing to make sure it worked, here is what the board looked like:
 
 <p align="center">
     <img src="images/1.jpg"/>
+    <img src="images/2.jpg"/>
+    <img src="images/3.jpg"/>
 </p>
 
-#### P3
-
----
-
-### Code:
+### And here is a GIF of it in action!
 
 <p align="center">
   <img src="images/tft.gif">
 </p>
-                           
-TFT Screen - Teensy Adapter

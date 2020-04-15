@@ -1,5 +1,5 @@
-<p align="center>
-  <img src="images/tft.gif">
+<p>
+  <img src="images/tft.gif" align="center">
 </p>
                            
 TFT Screen - Teensy Adapter

@@ -50,10 +50,57 @@ Here is the set of boards that I received from OSH Park:
 
 #### After soldering all of the pins in place and tesing to make sure it worked, here is what the board looked like:
 
+<style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 1px;
+  box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.desc {
+  padding: 0px;
+  text-align: left;
+}
+</style>
+
+<p>
+<div class="dropdown">
+  <img src="images/1.jpg" alt="Controller" width="180">
+  <div class="dropdown-content">
+  <img src="images/1.jpg" alt="Controller" width="350" height="350">
+  <div class="desc">XXXXXXXXX</div>
+  </div>
+</div>
+
+<div class="dropdown">
+  <img src="images/2.jpg" alt="Controller" width="180">
+  <div class="dropdown-content">
+  <img src="images/2.jpg" alt="Controller" width="350" height="350">
+  <div class="desc">XXXXXX</div>
+  </div>
+</div>
+
+<div class="dropdown">
+  <img src="images/3.jpg" alt="Controller" width="180">
+  <div class="dropdown-content">
+  <img src="images/3.jpg" alt="Controller" width="350" height="350">
+  <div class="desc">XXXXXX</div>
+  </div>
+</div>
+</p>
 <p align="center">
-    <img src="images/1.jpg" width="95%">
-    <img src="images/2.jpg" width="95%">
-    <img src="images/3.jpg" width="95%">
     <img src="images/tft2.gif" width="80%">
 </p>
 

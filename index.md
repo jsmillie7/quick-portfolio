@@ -71,10 +71,10 @@ My name is James Smillie. I am a Colorado native and alumnus of the University o
 
 ---
 
-### [ATTiny Programmer](/ATTiny)
+### [ATTiny Programmer](/PCB/ATTiny_Programmer)
 
 <p align="center">
-  <a href="/ATTiny">
+  <a href="/PCB/ATTiny_Programmer">
     <img src="images/attiny_both.png"  width="60%">
   </a>
 </p>

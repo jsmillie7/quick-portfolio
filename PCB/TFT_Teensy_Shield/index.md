@@ -12,6 +12,8 @@ I ordered [this](https://www.amazon.com/gp/product/B01CZL6QIQ) TFT screen. I was
 <p align="center">
     <img src="images/TFT_front.jpg" width="60%">
     <img src="images/TFT_back.jpg" width="35%">
+    <br>
+    images are from the <a href="https://www.amazon.com/gp/product/B01CZL6QIQ">Amazon</a> link
 </p>
 
 #### Choosing an MCU:

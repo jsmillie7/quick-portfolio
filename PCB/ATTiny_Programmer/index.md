@@ -65,6 +65,7 @@ The final product turned out great. It worked perfectly and has made my life pro
 }
 </style>
 
+<p>
 <div class="dropdown">
   <img src="/images/ATTiny/1.jpg" alt="Controller" width="100" height="100">
   <div class="dropdown-content">
@@ -112,6 +113,7 @@ The final product turned out great. It worked perfectly and has made my life pro
   <div class="desc">Arduino Nano Microcontroller</div>
   </div>
 </div>
+</p>
 
 #### Bill of Materials:
 

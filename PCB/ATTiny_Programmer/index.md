@@ -98,6 +98,10 @@ The final product turned out great. It worked perfectly and has made my life pro
   </div>
 </div>
 </p>
+<p align="center">
+  <img src="images/attiny.gif" width="80%">
+</p>
+  
 
 #### Bill of Materials:
 

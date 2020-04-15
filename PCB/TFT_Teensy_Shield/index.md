@@ -10,8 +10,8 @@
 I ordered [this](https://www.amazon.com/gp/product/B01CZL6QIQ) TFT screen. I was interested in learning how to use this technology in projects, when I quickly learned how frustrating working with a screen like this could be. The screen module is not a touch screen, but requires __9__ wires to display correctly. The module is also very sensitive to voltages, and plugging the wrong wire into the wrong spot can destroy the screen. This exact scenario happened to the first one that I bought. I needed a cleaner, more consistent way to interface with the board.
 
 <p align="center">
-    <img src="images/TFT_front.jpg" width="45%">
-    <img src="images/TFT_back.jpg" width="45%">
+    <img src="images/TFT_front.jpg" width="60%">
+    <img src="images/TFT_back.jpg" width="35%">
 </p>
 
 #### Choosing an MCU:

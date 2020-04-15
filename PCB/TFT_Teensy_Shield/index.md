@@ -28,11 +28,13 @@ With the MCU chosen, I needed a way to get rid of the 9 jumper wires needed to c
 </p>
 
 The screen's SPI pins were moved to one end of the board, and the screen conveniently has 5 pins on the opposite end of the board for use with the onboard SD card (which I desoldered and removed, since it was in the way and doesn't work with Teensy, anyways). I laid out the board in Eagle, uploaded the final design to [OSH Park](https://oshpark.com/shared_projects/d99zqTvy) and ordered a set of boards. The required components for the board  are:
-* 1x 2.2" TFT screen
-* 1x 100ohm resistor (0603)
-* 2x 14 pin female headers
-* 1x Teensy 3.2 or 4.0
 
+Code|Item|Qty
+:-:|:-:|:-:
+-|Teensy 3.2 or 4.0|1
+-|2.2" 240x320 TFT Display|1
+-|14-Pin Female Header, 0.1"|2
+R1|100 Ohm Resistor (0603)|1
 
 <p align="center">
     <img src="images/board_eagle.png" width="95%"><br>

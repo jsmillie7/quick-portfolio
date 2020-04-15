@@ -1,1 +1,1 @@
-INDEX!
+<img src="images/tft.gif">

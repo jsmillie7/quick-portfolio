@@ -7,11 +7,11 @@
 ##### for Teensy 3.2/4.0
 ---
 #### Background:
-I ordered [this](https://www.amazon.com/gp/product/B01CZL6QIQ) TFT screen. I was interested in learning how to use this technology in projects, when I quickly learned how frustrating working with a screen like this could be. The screen module is not a touch screen, but requires __9__ wires to display correctly. The module is also very sensitive to voltages, and plugging the wrong wire into the wrong spot can destroy the screen. This exact scenario happened to the first one that I bought. I needed a cleaner, more consistent way to interface with the board.
+I ordered [this](https://www.amazon.com/gp/product/B01CZL6QIQ) TFT screen because I was interested in learning how to use display technology in projects, when I quickly learned how frustrating working with a screen like this could be. The screen module is not a touch screen, but requires __9__ wires to display correctly. The module is also very sensitive to voltages, and plugging the wrong wire into the wrong spot can destroy the screen. This exact scenario happened to the first one that I bought. I needed a cleaner, more consistent way to interface with the board.
 
 <p align="center">
-    <img src="images/TFT_front.jpg" width="60%">
-    <img src="images/TFT_back.jpg" width="35%">
+    <img src="images/TFT_front.jpg" width="50%">
+    <img src="images/TFT_back.jpg" width="30%">
     <br>
     images are from the <a href="https://www.amazon.com/gp/product/B01CZL6QIQ">Amazon</a> link
 </p>
@@ -80,7 +80,6 @@ Here is the set of boards that I received from OSH Park:
   <img src="images/1.jpg" alt="Controller" width="180">
   <div class="dropdown-content">
   <img src="images/1.jpg" alt="Controller" height="350">
-  <div class="desc">XXXXXXXXX</div>
   </div>
 </div>
 
@@ -88,7 +87,6 @@ Here is the set of boards that I received from OSH Park:
   <img src="images/2.jpg" alt="Controller" width="180">
   <div class="dropdown-content">
   <img src="images/2.jpg" alt="Controller" height="350">
-  <div class="desc">XXXXXX</div>
   </div>
 </div>
 
@@ -96,7 +94,6 @@ Here is the set of boards that I received from OSH Park:
   <img src="images/3.jpg" alt="Controller" width="180">
   <div class="dropdown-content">
   <img src="images/3.jpg" alt="Controller" height="350">
-  <div class="desc">XXXXXX</div>
   </div>
 </div>
 </p>

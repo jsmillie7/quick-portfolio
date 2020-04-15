@@ -24,7 +24,7 @@ The screen uses Serial Peripheral Interface (SPI) to communicate with a Microcon
 With the MCU chosen, I needed a way to get rid of the 9 jumper wires needed to connect the two. Using Autodesk Eagle, I created all of the parts needed, and drew out a schematic of my idea. Beyond just connections to the screen, I wanted to add some input/output options to interact with the screen. I had an analog joystick that I wanted to use to potentially allow selection through menus, so I created a joystick port for the 5 wires required for that, as well as a port the included access to the UART RX/TX pins, 4 additional GPIO pins with grounds for each, and a 5V-in port to supply power without the USB. 
 
 <p align="center">
-    <img src="images/schematic.png"/>
+    <img src="images/schematic.png" width="95%">
 </p>
 
 The screen's SPI pins were moved to one end of the board, and the screen conveniently has 5 pins on the opposite end of the board for use with the onboard SD card (which I desoldered and removed, since it was in the way and doesn't work with Teensy, anyways). I laid out the board in Eagle, uploaded the final design to [OSH Park](https://oshpark.com/shared_projects/d99zqTvy) and ordered a set of boards. The required components for the board  are:
@@ -35,7 +35,7 @@ The screen's SPI pins were moved to one end of the board, and the screen conveni
 
 
 <p align="center">
-    <img src="images/board_eagle.png"><br>
+    <img src="images/board_eagle.png" width="95%"><br>
     Eagle board Layout<br>
     
 </p>
@@ -45,15 +45,15 @@ The screen's SPI pins were moved to one end of the board, and the screen conveni
 Here is the set of boards that I received from OSH Park:
 
 <p align="center">
-    <img src="images/final_board.jpg"/>
+    <img src="images/final_board.jpg"  width="95%">
 </p>
 
 #### After soldering all of the pins in place and tesing to make sure it worked, here is what the board looked like:
 
 <p align="center">
-    <img src="images/1.jpg"/>
-    <img src="images/2.jpg"/>
-    <img src="images/3.jpg"/>
+    <img src="images/1.jpg" width="95%">
+    <img src="images/2.jpg" width="95%">
+    <img src="images/3.jpg" width="95%">
 </p>
 
 ### And here is a GIF of it in action!

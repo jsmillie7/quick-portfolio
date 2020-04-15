@@ -2,12 +2,16 @@ title: James M. Smillie # your name (or website title) here
 logo: "/images/logo.png" # your photo (or logo) here
 degree: BA, Physics - University of Colorado
 description: > # your text below (remove <br> elements if you don't need line breaks)
-  <a href="pdf/James McBride Smillie Resume.pdf">> See my Resume</a>
+  <a href="bio">Read my Biography</a>
   <br>
-  <a href="https://www.linkedin.com/in/james-s-a03574124/">> View my LinkedIn</a>
+  <a href="pdf/James McBride Smillie Resume.pdf">See my Resume</a>
   <br>
-  <a href="/index#software">> Software</a>
+  <a href="https://www.linkedin.com/in/james-s-a03574124/">LinkedIn</a>
   <br>
-  <a href="/index#hardware">> Hardware</a>
+  <a href="/index#software">Software-based Projects</a>
+  <br>
+  <a href="/index#hardware">Hardware-based Projects</a>
+  <br>
+  <a href="#pcb-design-and-layout">PCB Design and Layout</a>
   
 theme: jekyll-theme-dinky

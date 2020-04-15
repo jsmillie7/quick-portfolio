@@ -37,7 +37,7 @@ The circuit was designed in AutoDesk Eagle and sent to OSH Park for fabrication.
 
 #### PCB:
 
-The final product turned out great. It worked perfectly and has made my life programming ATTinys much simpler. I did a bad job of cleaning off the extra flux, so the board has a bit of a crust on it, but I have since learned my lesson. My soldering skills have also improved significantly since this was done.
+The final product turned out great. It worked perfectly and has made my life programming ATTinys much simpler!
 
 
 <style>
@@ -75,7 +75,7 @@ The final product turned out great. It worked perfectly and has made my life pro
 </div>
 
 <div class="dropdown">
-  <img src="images/4.jpg" alt="Controller" width="90">
+  <img src="images/4.jpg" alt="Controller" width="135">
   <div class="dropdown-content">
   <img src="images/4.jpg" alt="Controller" width="350" height="350">
   <div class="desc">Underside of programmer board showing MUX, electrolytic capacitor and Arduino Nano headers, without Arduino installed.</div>
@@ -83,15 +83,15 @@ The final product turned out great. It worked perfectly and has made my life pro
 </div>
 
 <div class="dropdown">
-  <img src="images/5.jpg" alt="Controller" width="90">
+  <img src="images/5.jpg" alt="Controller" width="135">
   <div class="dropdown-content">
   <img src="images/5.jpg" alt="Controller" width="350" height="350">
-  <div class="desc">Programmer Board with ATTiny84 (programmer in ATTiny85 mode, should be switched to 84 mode)</div>
+  <div class="desc">Programmer Board with ATTiny84</div>
   </div>
 </div>
 
 <div class="dropdown">
-  <img src="images/6.jpg" alt="Controller" width="90">
+  <img src="images/6.jpg" alt="Controller" width="135">
   <div class="dropdown-content">
   <img src="images/6.jpg" alt="Controller" width="350" height="350">
   <div class="desc">Arduino Nano Microcontroller</div>

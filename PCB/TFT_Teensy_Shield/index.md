@@ -1,5 +1,5 @@
 <a href="index">
-<img src="images/back.png" alt="Back" height="35" width="35">
+<img src="/images/back.png" alt="Back" height="35" width="35">
 </a>
 
 ## TFT Shield PCB
@@ -33,13 +33,13 @@ The screen's SPI pins were moved to one end of the board, and the screen conveni
 
 
 <p align="center">
-    <img src="images/encrypter1.png"/>
+    <img src="images/board_eagle.png"/>
 </p>
 
 #### P2
 
 <p align="center">
-    <img src="images/encrypter2.png"/>
+    <img src="images/1.jpg"/>
 </p>
 
 #### P3

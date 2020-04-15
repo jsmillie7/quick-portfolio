@@ -79,7 +79,7 @@ Here is the set of boards that I received from OSH Park:
 <div class="dropdown">
   <img src="images/1.jpg" alt="Controller" width="180">
   <div class="dropdown-content">
-  <img src="images/1.jpg" alt="Controller" width="350" height="350">
+  <img src="images/1.jpg" alt="Controller" height="350">
   <div class="desc">XXXXXXXXX</div>
   </div>
 </div>
@@ -87,7 +87,7 @@ Here is the set of boards that I received from OSH Park:
 <div class="dropdown">
   <img src="images/2.jpg" alt="Controller" width="180">
   <div class="dropdown-content">
-  <img src="images/2.jpg" alt="Controller" width="350" height="350">
+  <img src="images/2.jpg" alt="Controller" height="350">
   <div class="desc">XXXXXX</div>
   </div>
 </div>
@@ -95,7 +95,7 @@ Here is the set of boards that I received from OSH Park:
 <div class="dropdown">
   <img src="images/3.jpg" alt="Controller" width="180">
   <div class="dropdown-content">
-  <img src="images/3.jpg" alt="Controller" width="350" height="350">
+  <img src="images/3.jpg" alt="Controller" height="350">
   <div class="desc">XXXXXX</div>
   </div>
 </div>

@@ -67,7 +67,7 @@ The final product turned out great. It worked perfectly and has made my life pro
 
 <p>
 <div class="dropdown">
-  <img src="images/1.jpg" alt="Controller" width="90">
+  <img src="images/1.jpg" alt="Controller" width="135">
   <div class="dropdown-content">
   <img src="images/1.jpg" alt="Controller" width="350" height="350">
   <div class="desc">Top of Programmer without ATTiny chip installed.</div>

@@ -32,12 +32,12 @@ Online, there are various programmers available for ATTiny85, fewer for the larg
 
 The circuit was designed in AutoDesk Eagle and sent to OSH Park for fabrication.
 <figure align="center">
-  <img src="images/ATTiny/schematica.png" width="100%">
+  <img src="images/schematica.png" width="100%">
 </figure>
 
 #### PCB:
 
-The final product turned out great. It worked perfectly and has made my life programming ATTinys much simpler!
+The final product turned out great. It worked perfectly and has made my life programming ATTinys much simpler! The board is available on OSH Park [here](https://oshpark.com/shared_projects/QZ8JRfp1).
 
 
 <style>

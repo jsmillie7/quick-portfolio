@@ -9,7 +9,7 @@
 ---
 
 <figure align="center">
-  <img src="images/attiny_both.png" width="70%">
+  <img src="images/attiny.gif" width="80%">
   <figcaption>ATTiny84/85 Programmer Board renders from OSH Park</figcaption>
 </figure>
 

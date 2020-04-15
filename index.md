@@ -59,6 +59,18 @@ My name is James Smillie. I am a Colorado native and alumnus of the University o
 
 ---
 
+## PCB Design and Layout
+
+### [Teensy TFT Display Shield](/PCB/TFT_Teensy_Shield)
+
+<p align="center">
+  <a href="/PCB/TFT_Teensy_Shield">
+    <img src="/PCB/TFT_Teensy_Shield/images/2.jpg"  width="60%">
+  </a>
+</p>
+
+---
+
 ### [ATTiny Programmer](/ATTiny)
 
 <p align="center">

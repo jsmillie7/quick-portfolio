@@ -44,6 +44,7 @@ The controller was admittedly hodge-podged together as a learning process. Prior
 
 <p align="center">
   <img src="images/ESP32_controller_1.png" width="70%">
+  <img src="images/ESP32_controller_2.png" width="70%">
 </p>
 here is where it goes
 

@@ -22,7 +22,7 @@ My name is James Smillie. I am a Colorado native and alumnus of the University o
 
 <p align="center">
   <a href="/instrument_mgr">
-    <img src="images/InstrumentMaintenance.PNG" title="Instrument Maintenance Manager" width="100%">
+    <img src="instrument_mgr/images/InstrumentMaintenance.PNG" title="Instrument Maintenance Manager" width="100%">
   </a>
 </p>
 
@@ -41,7 +41,7 @@ My name is James Smillie. I am a Colorado native and alumnus of the University o
 
 <p align="center">
   <a href="/data_encryption">
-    <img src="images/encrypter1.png" title="SHA-256 Data Encryption Tool" width="50%">
+    <img src="/data_encryption/images/encrypter1.png" title="SHA-256 Data Encryption Tool" width="50%">
   </a>
 </p>
 

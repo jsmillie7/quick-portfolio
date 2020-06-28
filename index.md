@@ -9,39 +9,39 @@ My name is James Smillie. I am a Colorado native and alumnus of the University o
 ---
 ## Software
 
-### [3D Modeling Mountains](/geomodeling)
+### [3D Modeling Mountains](software/geomodeling)
 <p align="center">
-  <a href="/geomodeling">
-    <img src="geomodeling/images/cover.png" title="Mountain Modeling" width="100%">
+  <a href="software/geomodeling">
+    <img src="software/geomodeling/images/cover.png" title="Mountain Modeling" width="100%">
   </a>
 </p>
 
 ---
 
-### [Instrument Maintenance Manager](/instrument_mgr)
+### [Instrument Maintenance Manager](software/instrument_mgr)
 
 <p align="center">
-  <a href="/instrument_mgr">
-    <img src="instrument_mgr/images/InstrumentMaintenance.PNG" title="Instrument Maintenance Manager" width="100%">
+  <a href="software/instrument_mgr">
+    <img src="software/instrument_mgr/images/InstrumentMaintenance.PNG" title="Instrument Maintenance Manager" width="100%">
   </a>
 </p>
 
 ---
 
-### [Batch Record Management Tool](/BR_mgr)
+### [Batch Record Management Tool](software/BR_mgr)
 
 <p align="center">
-  <a href="/BR_mgr">
-    <img src="BR_mgr/images/BR1.PNG" title="Batch Record Management Tool" width="50%">
+  <a href="software/BR_mgr">
+    <img src="software/BR_mgr/images/BR1.PNG" title="Batch Record Management Tool" width="50%">
   </a>
 </p>
 
 ---
-### [SHA-256 Data Encryption Tool](/data_encryption)
+### [SHA-256 Data Encryption Tool](software/data_encryption)
 
 <p align="center">
-  <a href="/data_encryption">
-    <img src="/data_encryption/images/encrypter1.png" title="SHA-256 Data Encryption Tool" width="50%">
+  <a href="software/data_encryption">
+    <img src="software/data_encryption/images/encrypter1.png" title="SHA-256 Data Encryption Tool" width="50%">
   </a>
 </p>
 
@@ -49,11 +49,11 @@ My name is James Smillie. I am a Colorado native and alumnus of the University o
 
 ## Hardware
 
-### [CNC Laser Cutter](/laser)
+### [CNC Laser Cutter](hardware/laser)
 
 <p align="center">
-  <a href="/laser">
-    <img src="images/laser.JPG" alt="laser cutter" width="100%">
+  <a href="hardware/laser">
+    <img src="hardware/laser/images/laser.JPG" alt="laser cutter" width="100%">
   </a>
 </p>
 

@@ -55,7 +55,7 @@ I am a bit of an MCU afficianado, I own several Arduino boards, ATTinys, Teensys
 > The ESP32 is a 32 bit, WiFi and Bluetooth enabled (not at the same time) microcontroller that runs with a clock speed that is 15x the Arduino Uno used in the original board, and has a much smaller footprint.
 
 * Power Supply
-> The poswer supply that I used on the first version was 24V/15A. It was overkill by a mile (the cooling fan never turned on a signle time). After measuring the maximum current draw to be under 3 amps, I knew that I could find a much less bulky option. I had an old power brick from a past laptop laying around with a rated output of 19V/3.42A, with a barrel jack that mates perfectly with the one on the CNC controller board. The meat of the power supply is in-line, and doesnt need to be mounted anywhere, so it saves a lot of space.
+> The poswer supply that I used on the first version was 24V/15A. It was overkill by a mile (the cooling fan never turned on a single time). After measuring the maximum current draw to be under 3 amps, I knew that I could find a much less bulky option. I had an old power brick from a past laptop laying around with a rated output of 19V/3.42A, with a barrel jack that mates perfectly with the one on the CNC controller board. The meat of the power supply is in-line, and doesnt need to be mounted anywhere, so it saves a lot of space.
 <img src="images/power_supply.jpg">
 
 * SD Card Reader

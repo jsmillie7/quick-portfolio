@@ -32,7 +32,7 @@ My name is James Smillie. I am a Colorado native and alumnus of the University o
 
 <p align="center">
   <a href="/BR_mgr">
-    <img src="images/BR1.PNG" title="Batch Record Management Tool" width="50%">
+    <img src="BR_mgr/images/BR1.PNG" title="Batch Record Management Tool" width="50%">
   </a>
 </p>
 
@@ -75,7 +75,7 @@ My name is James Smillie. I am a Colorado native and alumnus of the University o
 
 <p align="center">
   <a href="/PCB/ATTiny_Programmer">
-    <img src="images/attiny_both.png"  width="60%">
+    <img src="/PCB/ATTiny_Programmer/images/attiny_both.png"  width="60%">
   </a>
 </p>
 
